@@ -54,7 +54,7 @@ def main():
         if not done:
             sio.emit("getGameInfo", game)
             done = True
-        # sio.emit("updateUserStatus", ("", game))
+            sio.emit("updateUserStatus", ("", game))
 
     @sio.event
     def version(data=None):

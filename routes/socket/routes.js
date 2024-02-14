@@ -458,6 +458,8 @@ module.exports.socketRoutes = () => {
 						isRestricted = checkRestriction(account);
 					});
 				}
+				console.log('confirm tou', isRestricted, authenticated);
+				socket.emit('touChangeConfirmed', isRestricted);
 			});
 
 			socket.on('acknowledgeWarning', () => {
@@ -543,6 +545,7 @@ module.exports.socketRoutes = () => {
 				}
 			});
 			socket.on('updateSeatedUser', data => {
+				console.log('updateseated', isRestricted, authenticated, data);
 				if (isRestricted) return;
 				if (authenticated) {
 					updateSeatedUser(socket, passport, data);
@@ -664,6 +667,7 @@ module.exports.socketRoutes = () => {
 			});
 			socket.on('updateUserStatus', (type, gameId) => {
 				const game = findGame({ uid: gameId });
+				console.log('updateuserstatus', type, gameId, passport, authenticated, ensureInGame(passport, game));
 				if (authenticated && ensureInGame(passport, game)) {
 					updateUserStatus(passport, game);
 				} else if (authenticated) {
