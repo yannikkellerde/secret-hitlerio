@@ -497,6 +497,7 @@ const updateSeatedUser = (socket, passport, data) => {
 	// Authentication Assured in routes.js
 	// In-game Assured in routes.js
 	const game = games[data.uid];
+	console.log('updateSeatedUser', data);
 	// prevents race condition between 1) taking a seat and 2) the game starting
 
 	if (!game || game.gameState.isTracksFlipped) {

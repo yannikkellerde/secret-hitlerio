@@ -1,0 +1,119 @@
+[
+	[
+		{
+			"gameState": {
+				"previousElectedGovernment": [],
+				"undrawnPolicyCount": 17,
+				"discardedPolicyCount": 0,
+				"presidentIndex": -1
+			},
+			"chats": [],
+			"general": {
+				"whitelistedPlayers": [],
+				"uid": "PlainStereotypedMotionlessCurlew",
+				"name": "tok",
+				"flag": "none",
+				"minPlayersCount": 7,
+				"excludedPlayerCount": [],
+				"maxPlayersCount": 7,
+				"status": "Waiting for 3 more players..",
+				"experiencedMode": true,
+				"playerChats": "enabled",
+				"isVerifiedOnly": false,
+				"disableObserverLobby": false,
+				"disableObserver": false,
+				"isTourny": false,
+				"lastModPing": 0,
+				"chatReplTime": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"disableGamechat": false,
+				"rainbowgame": false,
+				"blindMode": false,
+				"timedMode": false,
+				"flappyMode": false,
+				"flappyOnlyMode": false,
+				"casualGame": false,
+				"practiceGame": false,
+				"rebalance6p": true,
+				"rebalance7p": false,
+				"rebalance9p2f": true,
+				"unlistedGame": false,
+				"private": false,
+				"privateAnonymousRemakes": false,
+				"privateOnly": false,
+				"electionCount": 0,
+				"isRemade": false,
+				"eloMinimum": null,
+				"timeCreated": "2024-02-14T18:37:12.512Z",
+				"timeAbandoned": null
+			},
+			"customGameSettings": {
+				"enabled": false
+			},
+			"publicPlayersState": [
+				{
+					"userName": "ccc",
+					"connected": true,
+					"isDead": false,
+					"isPrivate": false,
+					"tournyWins": [],
+					"cardStatus": {
+						"cardDisplayed": false,
+						"isFlipped": false,
+						"cardFront": "secretrole",
+						"cardBack": {}
+					},
+					"leftGame": false
+				},
+				{
+					"userName": "Valeera",
+					"connected": true,
+					"isDead": false,
+					"isPrivate": false,
+					"tournyWins": [],
+					"cardStatus": {
+						"cardDisplayed": false,
+						"isFlipped": false,
+						"cardFront": "secretrole",
+						"cardBack": {}
+					}
+				},
+				{
+					"userName": "Rexxar",
+					"connected": true,
+					"isDead": false,
+					"isPrivate": false,
+					"tournyWins": [],
+					"cardStatus": {
+						"cardDisplayed": false,
+						"isFlipped": false,
+						"cardFront": "secretrole",
+						"cardBack": {}
+					}
+				},
+				{
+					"userName": "Uther",
+					"tournyWins": [],
+					"connected": true,
+					"isPrivate": false,
+					"cardStatus": {
+						"cardDisplayed": false,
+						"isFlipped": false,
+						"cardFront": "secretrole",
+						"cardBack": {}
+					},
+					"leftGame": false
+				}
+			],
+			"playersState": [],
+			"cardFlingerState": [],
+			"trackState": {
+				"liberalPolicyCount": 0,
+				"fascistPolicyCount": 0,
+				"electionTrackerCount": 0,
+				"enactedPolicies": []
+			},
+			"guesses": {},
+			"electionCount": 0
+		}
+	]
+]

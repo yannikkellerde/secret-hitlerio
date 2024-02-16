@@ -45,6 +45,10 @@ module.exports.sendInProgressGameUpdate = (game, noChats = false) => {
 	const observerSockets = roomSockets.filter(
 		socket => (socket && !socket.handshake.session.passport) || (socket && !seatedPlayerNames.includes(socket.handshake.session.passport.user))
 	);
+	roomSockets.forEach(sock => {
+		console.log(sock.handshake.session);
+	});
+	console.log('Game update', playerSockets.length, roomSockets.length, seatedPlayerNames);
 
 	playerSockets.forEach(sock => {
 		const _game = Object.assign({}, game);
