@@ -14,7 +14,9 @@ ignores = [
     "timestamp",
     "timeStarted",
     "cardDisplayed",
+    "isLoader",
 ]
+
 
 with open("data/examples/collected_actions.json", "r") as f:
     data = json.load(f)

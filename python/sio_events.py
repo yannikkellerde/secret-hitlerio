@@ -54,5 +54,3 @@ def register_events(sio: socketio.Client, status: EventStatus, cookie):
     sio.connect(
         "ws://localhost:8080", headers={"Cookie": f"{cookie.name}={cookie.value}"}
     )
-
-    input()
