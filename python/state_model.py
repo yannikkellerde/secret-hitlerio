@@ -5,7 +5,8 @@ from typing import Optional, List, Dict, Type
 @dataclass
 class gameState:
     isStarted: Optional[bool]
-    isCompleted: Optional[bool]
+    isCompleted: Optional[str]
+    timeCompleted: Optional[int]
     isVetoEnabled: Optional[bool]
     isTracksFlipped: Optional[bool]
     isGameFrozen: Optional[bool]
@@ -17,6 +18,8 @@ class gameState:
     undrawnPolicyCount: Optional[int]
     specialElectionFormerPresidentIndex: Optional[int]
     audioCue: Optional[str]
+    discardedPolicyCount: Optional[int]
+    clickActionInfo: Optional[List[str | List[int]]]
 
 
 @dataclass
@@ -31,16 +34,23 @@ class flappyState:
 class chatData:
     text: Optional[str]
     type: Optional[str]
+    claim: Optional[str]
+    policies: Optional[List[str]]
 
 
 @dataclass
 class chat:
-    chat: Optional[List[chatData]]
+    chat: Optional[str | List[chatData]]
     type: Optional[str]
     gameChat: Optional[bool]
     isClaim: Optional[bool]
     isBroadcast: Optional[bool]
     timestamp: Optional[str]
+    claim: Optional[str]
+    claimState: Optional[str]
+    userName: Optional[str]
+    uid: Optional[str]
+    isRemainingPolicies: Optional[bool]
 
 
 chats = List[chat]
@@ -91,8 +101,19 @@ class general:
     rebalance6p: Optional[bool]
     rebalance7p: Optional[bool]
     rebalance9p: Optional[bool]
+    rebalance9p2f: Optional[bool]
     rerebalance9p: Optional[bool]
     tourneyInfo: Optional[tournyInfo]
+    practiceGame: Optional[bool]
+    eloMinimum: Optional[int]
+    flappyMode: Optional[bool]
+    unlistedGame: Optional[bool]
+    flag: Optional[str]
+    privateAnonymousRemakes: Optional[bool]
+    chatReplTime: Optional[List[int]]
+    timeAbandoned: Optional[int]
+    flappyOnlyMode: Optional[bool]
+    isRecorded: Optional[bool]
 
 
 @dataclass
@@ -107,7 +128,14 @@ class cardStatus:
     cardDisplayed: Optional[bool]
     isFlipped: Optional[bool]
     cardFront: Optional[str]
+    cardBack: Optional[cardBack | str | dict]
+
+
+@dataclass
+class enactedCard:
     cardBack: Optional[cardBack | str]
+    isFlipped: Optional[bool]
+    position: Optional[str]
 
 
 @dataclass
@@ -122,6 +150,10 @@ class OnePublicPlayersState:
     userName: Optional[str]
     previousGovernmentStatus: Optional[str]
     cardStatus: Optional[cardStatus]
+    isPrivate: Optional[bool]
+    tournyWins: Optional[List[str]]
+    notificationStatus: Optional[str]
+    nameStatus: Optional[str]
 
 
 @dataclass
@@ -129,7 +161,7 @@ class trackState:
     liberalPolicyCount: Optional[int]
     electionTrackerCount: Optional[int]
     fascistPolicyCount: Optional[int]
-    enactedPolicies: Optional[List[str]]
+    enactedPolicies: Optional[List[enactedCard]]
 
 
 @dataclass
@@ -143,6 +175,7 @@ class OneRemakeData:
     userName: Optional[str]
     isRemaking: Optional[bool]
     remakeTime: Optional[int]
+    timesVoted: Optional[int]
 
 
 @dataclass
@@ -161,6 +194,8 @@ class OnePlayersState:
     nameStatus: Optional[str]
     hasVoted: Optional[bool]
     policyNotification: Optional[bool]
+    cardStatus: Optional[cardStatus]
+    claim: Optional[str]
 
 
 playersState = List[OnePlayersState]
@@ -184,6 +219,8 @@ class OneCardFlingerState:
     position: Optional[str]
     notificationStatus: Optional[str]
     cardStatus: Optional[cardStatus]
+    action: Optional[str]
+    discard: Optional[bool]
 
 
 cardFlingerState = List[OneCardFlingerState]
@@ -225,8 +262,38 @@ class private:
 
 
 @dataclass
+class privInfo:
+    reports: Optional[dict]
+    unSeatedGameChats: Optional[list]
+    commandChats: Optional[dict]
+    replayGameChats: Optional[list]
+    lock: Optional[dict]
+    votesPeeked: Optional[bool]
+    remakeVotesPeeked: Optional[bool]
+    invIndex: Optional[int]
+    hiddenInfoChat: Optional[list]
+    hiddenInfoSubscriptions: Optional[list]
+    hiddenInfoShouldNotify: Optional[bool]
+    gameCreatorName: Optional[str]
+    gameCreatorBlacklist: Optional[list]
+
+
+@dataclass
+class RoleState:
+    lib: Optional[int]
+    fas: Optional[int]
+
+
+@dataclass
 class customGameSettings:
     enabled: Optional[bool]
+    hitlerZone: Optional[int]
+    vetoZone: Optional[int]
+    trackState: Optional[RoleState]
+    deckState: Optional[RoleState]
+    fascistCount: Optional[int]
+    hitKnowsFas: Optional[bool]
+    powers: Optional[List[str | None]]
 
 
 remakeData = List[OneRemakeData]
@@ -246,3 +313,7 @@ class GameUpdate:
     trackState: Optional[trackState]
     guesses: Optional[dict]
     electionCount: Optional[int]
+    private: Optional[privInfo]
+    remakeData: Optional[remakeData]
+    summary: Optional[dict]
+    summarySaved: Optional[bool]

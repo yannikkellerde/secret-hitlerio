@@ -3,7 +3,10 @@ from state_model import GameUpdate
 from update_dataclass import update_dataclass
 from compute_diff import dataclass_diff
 from copy import deepcopy
+import json
 from player_api import Player
+from dacite import from_dict, Config
+from stupid_player import StupidPlayer
 
 ignores = [
     "status",
@@ -15,6 +18,8 @@ ignores = [
     "timeStarted",
     "cardDisplayed",
     "isLoader",
+    "isFlipped",
+    "undrawnPolicyCount",
 ]
 
 
@@ -38,7 +43,9 @@ class EventBuilder:
             old_game_state = deepcopy(self.gameUpdate)
             update_dataclass(self.gameUpdate, game_update)
             diff = dataclass_diff(old_game_state, self.gameUpdate, ignores)
-            self.inform_diff(diff)
+            print(diff)
+            for d in diff:
+                self.inform_diff(d)
 
     def inform_diff(self, diff):
         match diff[0]:
@@ -59,3 +66,19 @@ class EventBuilder:
                         self.player.request_action(Event.NOMINATION, self.gameUpdate)
                     case "voting":
                         self.player.request_action(Event.PERSONAL_VOTE, self.gameUpdate)
+
+
+def simulate_from_file(fpath):
+    with open(fpath, "r") as f:
+        data = json.load(f)
+    builder = EventBuilder()
+    builder.player = StupidPlayer(1, "helo", "Uther")
+    for el in data[:30]:
+        game_update = from_dict(
+            data_class=GameUpdate, data=el, config=Config(strict=True)
+        )
+        builder.new_game_update(game_update)
+
+
+if __name__ == "__main__":
+    simulate_from_file("data/examples/game_updates.json")
