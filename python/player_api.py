@@ -2,10 +2,12 @@ from abc import ABC, abstractmethod
 from sh_game import Event
 from state_model import GameUpdate
 from socketio import Client
+from constants import claim_map
 
 
 class Player(ABC):
     def __init__(self, pid, game_id, username):
+        self.role = None
         self.pid = pid
         self.game_id = game_id
         self.username = username
@@ -19,10 +21,6 @@ class Player(ABC):
         pass
 
     def action_to_server(self, sio: Client, event: Event, **kwargs):
-        claim_map = {
-            Event.CHANCELLOR_CLAIM: "wasChancellor",
-            Event.PEEK_CLAIM: "didPolicyPeek",
-        }
         match event:
             case Event.PERSONAL_VOTE:
                 assert "vote" in kwargs
