@@ -7,15 +7,20 @@ import random
 class StupidPlayer(Player):
     def __init__(self, pid, game_id, username):
         self.collected_events = []
-        super().__init__(pid, game_id, username)
+        super().__init__(pid, game_id, username, is_smart=False)
 
     def inform_event(self, event: dict[str, str | Event]):
         self.collected_events.append(event)
 
     def request_action(self, phase: Event, gameUpdate: GameUpdate):
         match phase:
+            case Event.PERSONAL_VOTE:
+                return {
+                    "event": Event.DISCARD,
+                    "vote": random.choice((True, False)),
+                }
             case Event.DISCARD:
-                _options = gameUpdate.get_card_flinger_hand()
+                # options = gameUpdate.get_card_flinger_hand()
                 return {
                     "event": Event.DISCARD,
                     "selection": random.randint(0, 2),
@@ -26,7 +31,7 @@ class StupidPlayer(Player):
                     "selection": random.choice([0, 3]),
                 }
             case Event.MESSAGE:  # Phase 2 and 6
-                options = [Event.MESSAGE]
+                options = [Event.MESSAGE, Event.NOOP]
                 if (
                     gameUpdate.publicPlayersState[self.pid].governmentStatus
                     == "isPresident"
@@ -51,11 +56,14 @@ class StupidPlayer(Player):
                     phase == Event.NOMINATION
                     and gameUpdate.publicPlayersState[self.pid].governmentStatus
                     == "isPendingPresident"
+                    and gameUpdate.gameState.phase == "selectingChancellor"
                 ):
                     options.append(Event.NOMINATION)
 
                 event = random.choice(options)
                 match event:
+                    case Event.NOOP:
+                        return None
                     case Event.MESSAGE:
                         return {
                             "event": Event.MESSAGE,
@@ -72,6 +80,11 @@ class StupidPlayer(Player):
                         return {
                             "event": Event.EXECUTE_ACTION,
                             "playerIndex": random.choice(valid_targets),
+                        }
+                    case Event.CHANCELLOR_VETO | Event.PRESIDENT_VETO:
+                        return {
+                            "event": event,
+                            "vote": random.choice([True, False]),
                         }
                     case (
                         Event.PRESIDENT_CLAIM

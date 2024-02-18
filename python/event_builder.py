@@ -9,7 +9,9 @@ from dacite import from_dict, Config
 from stupid_player import StupidPlayer
 from constants import inv_claim_map
 from datetime import datetime
+from socketio import Client
 import re
+from typing import Optional
 
 ignores = [
     "leftGame",
@@ -32,15 +34,22 @@ def diff_split(diff_info):
 
 
 class EventBuilder:
-    def __init__(self):
+    def __init__(self, client: Client = None):
         self.events: list[dict[str, str | Event]] = []
         self.gameUpdate: GameUpdate = None
         self.player: Player = None
         self.chat_timestamp: datetime = None
+        self.next_timestamp: datetime = None
+        self.client: Optional[Client] = client
 
     def new_event(self, event: dict[str, str | Event]):
         self.player.inform_event(event)
         self.events.append(event)
+
+    def perform_action(self, event: Event):
+        act = self.player.request_action(event, self.gameUpdate)
+        if self.client is not None and act is not None:
+            self.player.action_to_server(self.client, act["event"], **act)
 
     def new_game_update(self, game_update: GameUpdate):
         if self.gameUpdate is None:
@@ -52,10 +61,13 @@ class EventBuilder:
             some_diff = [x for x in diff if not x[0].startswith("chats")]
             # if some_diff:
             #    print(some_diff)
-            if "veto" in str(some_diff):
-                print(some_diff)
+            # if "veto" in str(diff):
+            #    print(diff)
             for d in diff:
                 self.inform_diff(d)
+            if self.next_timestamp is not None:
+                self.chat_timestamp = self.next_timestamp
+                self.next_timestamp = None
 
     def inform_diff(self, diff):
         d_first, nums = diff_split(diff[0])
@@ -83,16 +95,12 @@ class EventBuilder:
                         }
                     )
             case "chats":
-                if (
-                    diff[1] is None
-                    and isinstance(diff[2], chat)
-                    and diff[2].timestamp is not None
-                ):
+                if isinstance(diff[2], chat) and diff[2].timestamp is not None:
                     chat_time = datetime.strptime(
                         diff[2].timestamp, "%Y-%m-%dT%H:%M:%S.%fZ"
                     )
                     if self.chat_timestamp is None or chat_time > self.chat_timestamp:
-                        self.chat_timestamp = chat_time
+                        self.next_timestamp = chat_time
                         if diff[2].isClaim:
                             self.new_event(
                                 {
@@ -100,6 +108,11 @@ class EventBuilder:
                                     "hand": diff[2].claimState,
                                 }
                             )
+                            if (
+                                diff[2].userName != self.player.username
+                                or self.player.is_smart
+                            ):
+                                self.perform_action(Event.MESSAGE)
                         if isinstance(diff[2].chat, str):
                             self.new_event(
                                 {
@@ -109,7 +122,12 @@ class EventBuilder:
                                     ),
                                     "text": diff[2].chat,
                                 }
-                            )  # Replace with pid?
+                            )
+                            if (
+                                diff[2].userName != self.player.username
+                                or self.player.is_smart
+                            ):
+                                self.perform_action(Event.MESSAGE)
                         elif isinstance(diff[2].chat, list):
                             for cd in diff[2].chat:
                                 if isinstance(cd, chatData):
@@ -125,6 +143,11 @@ class EventBuilder:
                                                 "veto": True,
                                             }
                                         )
+                                        if (
+                                            diff[2].userName != self.player.username
+                                            or self.player.is_smart
+                                        ):
+                                            self.perform_action(Event.MESSAGE)
                                     elif (
                                         cd.text
                                         == " has voted not to veto this election."
@@ -140,6 +163,11 @@ class EventBuilder:
                                                 "veto": False,
                                             }
                                         )
+                                        if (
+                                            diff[2].userName != self.player.username
+                                            or self.player.is_smart
+                                        ):
+                                            self.perform_action(Event.MESSAGE)
             case "playersState.policyNotification":
                 if nums[0] == self.player.pid and diff[1] and not diff[2]:
                     self.new_event(
@@ -151,6 +179,7 @@ class EventBuilder:
             case "general.status":
                 if diff[2] == "President to peek at policies.":
                     self.new_event({"event": Event.PEEK_MESSAGE})
+                    self.perform_action(Event.MESSAGE)
             case "gameState.isStarted":
                 if not diff[1] and diff[2]:
                     self.new_event({"event": Event.START})
@@ -161,14 +190,17 @@ class EventBuilder:
                         self.new_event({"event": Event.CHAOS_POLICY})
             case "playersState.nameStatus" if nums[0] == self.player.pid:
                 self.new_event({"event": Event.PERSONAL_ROLE_CALL, "role": diff[2]})
+                self.perform_action(Event.MESSAGE)
             case "trackState.liberalPolicyCount":
                 self.new_event(
                     {"event": Event.ENACTED, "policy_type": "liberal", "num": diff[2]}
                 )
+                self.perform_action(Event.MESSAGE)
             case "trackState.fascistPolicyCount":
                 self.new_event(
                     {"event": Event.ENACTED, "policy_type": "fascist", "num": diff[2]}
                 )
+                self.perform_action(Event.MESSAGE)
             case "gameState.pendingChancellorIndex":
                 self.new_event(
                     {
@@ -177,6 +209,7 @@ class EventBuilder:
                         "chanc": self.gameUpdate.gameState.pendingChancellorIndex,
                     }
                 )
+                self.perform_action(Event.MESSAGE)
             case "gameState.phase":
                 if diff[1] == "voting":
                     votes = [
@@ -187,10 +220,11 @@ class EventBuilder:
                 match diff[2]:
                     case "execution":
                         self.new_event({"event": Event.EXECUTE_MESSAGE})
+                        self.perform_action(Event.MESSAGE)
                     case "selectingChancellor":
-                        self.player.request_action(Event.NOMINATION, self.gameUpdate)
+                        self.perform_action(Event.MESSAGE)
                     case "voting":
-                        self.player.request_action(Event.PERSONAL_VOTE, self.gameUpdate)
+                        self.perform_action(Event.PERSONAL_VOTE)
                     case "presidentSelectingPolicy":
                         if (
                             self.gameUpdate.publicPlayersState[
@@ -204,7 +238,7 @@ class EventBuilder:
                                     "hand": self.gameUpdate.get_card_flinger_hand(),
                                 }
                             )
-                            self.player.request_action(Event.DISCARD, self.gameUpdate)
+                            self.perform_action(Event.DISCARD)
                     case "chancellorSelectingPolicy":
                         if (
                             self.gameUpdate.publicPlayersState[
@@ -218,7 +252,7 @@ class EventBuilder:
                                     "hand": self.gameUpdate.get_card_flinger_hand(),
                                 }
                             )
-                            self.player.request_action(Event.PLAY_CARD, self.gameUpdate)
+                            self.perform_action(Event.PLAY_CARD)
 
 
 def simulate_from_file(fpath):
@@ -231,7 +265,7 @@ def simulate_from_file(fpath):
             data_class=GameUpdate, data=el, config=Config(strict=True)
         )
         builder.new_game_update(game_update)
-    # print(json.dumps(builder.events, indent=4))
+    print(json.dumps(builder.events, indent=4))
 
 
 if __name__ == "__main__":

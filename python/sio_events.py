@@ -1,10 +1,15 @@
 import socketio
 from event_status import EventStatus
+from event_builder import EventBuilder
+from dacite import from_dict
+from state_model import GameUpdate
 import json
 import os
 
 
-def register_events(sio: socketio.Client, status: EventStatus, cookie):
+def register_events(
+    sio: socketio.Client, status: EventStatus, event_builder: EventBuilder, cookie
+):
     @sio.event
     def connect():
         sio.emit("confirmTOU")
@@ -43,9 +48,8 @@ def register_events(sio: socketio.Client, status: EventStatus, cookie):
 
     @sio.event
     def gameUpdate(*data):
-        status.collected_actions.append(data)
-        with open(os.path.expanduser("~/tmp/collected_actions.json"), "w") as f:
-            json.dump(status.collected_actions, f, indent=4)
+        game_update = from_dict(data[0], GameUpdate)
+        event_builder.new_game_update(game_update)
 
     @sio.event
     def playerChatUpdate(data):

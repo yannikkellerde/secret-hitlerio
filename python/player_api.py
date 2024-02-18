@@ -6,11 +6,12 @@ from constants import claim_map
 
 
 class Player(ABC):
-    def __init__(self, pid, game_id, username):
+    def __init__(self, pid, game_id, username, is_smart=True):
         self.role = None
         self.pid = pid
         self.game_id = game_id
         self.username = username
+        self.is_smart = is_smart
 
     @abstractmethod
     def inform_event(self, event: dict[str, str | Event]):
@@ -70,6 +71,12 @@ class Player(ABC):
                 assert "vote" in kwargs
                 sio.emit(
                     "selectedChancellorVoteOnVeto",
+                    {"vote": kwargs["vote"], "uid": self.game_id},
+                )
+            case Event.PRESIDENT_VETO:
+                assert "vote" in kwargs
+                sio.emit(
+                    "selectedPresidentVoteOnVeto",
                     {"vote": kwargs["vote"], "uid": self.game_id},
                 )
             case Event.MESSAGE:
