@@ -121,6 +121,7 @@ class cardBack:
     icon: Optional[int]
     roleName: Optional[str]
     team: Optional[str]
+    cardName: Optional[str]
 
 
 @dataclass
@@ -128,7 +129,7 @@ class cardStatus:
     cardDisplayed: Optional[bool]
     isFlipped: Optional[bool]
     cardFront: Optional[str]
-    cardBack: Optional[cardBack | str | dict]
+    cardBack: Optional[cardBack | str]
 
 
 @dataclass
@@ -317,3 +318,13 @@ class GameUpdate:
     remakeData: Optional[remakeData]
     summary: Optional[dict]
     summarySaved: Optional[bool]
+
+    def get_card_flinger_hand(self):
+        return [
+            x.cardStatus.cardBack[:-1] for x in self.cardFlingerState if x is not None
+        ]
+
+    def id_from_username(self, username):
+        for i, player in enumerate(self.publicPlayersState):
+            if player.userName == username:
+                return i

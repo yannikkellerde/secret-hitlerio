@@ -28,10 +28,18 @@ class Player(ABC):
                     "selectedVoting",
                     {"vote": kwargs["vote"], "uid": self.game_id},
                 )
-            case Event.PLAY_CARD:  # ???
-                pass
-            case Event.DISCARD:  # ???
-                pass
+            case Event.PLAY_CARD:
+                assert "selection" in kwargs
+                sio.emit(
+                    "selectedChancellorPolicy",
+                    {"selection": kwargs["selection"], "uid": self.game_id},
+                )
+            case Event.DISCARD:
+                assert "selection" in kwargs
+                sio.emit(
+                    "selectedPresidentPolicy",
+                    {"selection": kwargs["selection"], "uid": self.game_id},
+                )
             case _ if event in claim_map:
                 assert "claimState" in kwargs
                 sio.emit(

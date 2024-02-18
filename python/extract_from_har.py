@@ -34,6 +34,14 @@ def extract_game_updates(ws_msgs):
     ]
 
 
+def extract_none_game_updates(ws_msgs):
+    return [
+        x["data"][1:]
+        for x in ws_msgs
+        if isinstance(x["data"], list) and x["data"][0] != "gameUpdate"
+    ]
+
+
 def get_sent_messages(ws_msgs):
     return [x["data"] for x in ws_msgs if x["type"] == "send"]
 
@@ -41,12 +49,14 @@ def get_sent_messages(ws_msgs):
 if __name__ == "__main__":
     ws_msgs = bring_into_good_shape("data/harharhar/localhost_final.har")
     game_updates = extract_game_updates(ws_msgs)
+    none_game_updates = extract_none_game_updates(ws_msgs)
     sent_messages = get_sent_messages(ws_msgs)
 
     for dat, fname in [
         (ws_msgs, "data/examples/ws_msgs.json"),
         (game_updates, "data/examples/game_updates.json"),
         (sent_messages, "data/examples/sent_messages.json"),
+        (none_game_updates, "data/examples/none_game_updates.json"),
     ]:
         with open(fname, "w") as f:
             json.dump(dat, f, indent=2)

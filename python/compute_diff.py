@@ -21,7 +21,7 @@ def dataclass_diff(dc1, dc2, ignores):
         elif isinstance(val1, list):
             if isinstance(val2, list):
                 for i, (e1, e2) in enumerate(zip(val1, val2)):
-                    if is_dataclass(e1) and is_dataclass(e2):
+                    if is_dataclass(e1) and is_dataclass(e2) and field.name != "chats":
                         sub_diffs = dataclass_diff(e1, e2, ignores)
                         diffs.extend(
                             [[f"{field.name}[{i}].{x[0]}"] + x[1:] for x in sub_diffs]

@@ -15,7 +15,7 @@ def update_dataclass(dc1, dc2):
         elif isinstance(val1, list):
             if len(val1) > 0 and is_dataclass(val1[0]):
                 for i, (e1, e2) in enumerate(zip(val1, val2)):
-                    if is_dataclass(e1) and is_dataclass(e2):
+                    if is_dataclass(e1) and is_dataclass(e2) and field.name != "chats":
                         update_dataclass(e1, e2)
                     else:
                         val1[i] = e2
