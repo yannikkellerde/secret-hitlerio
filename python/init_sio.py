@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-def initialize_sio(username="ccc", password="snipsnap"):
+def initialize_sio(username="Jaina", password="snipsnap"):
     sio = socketio.Client()
     stuff = {"username": username, "password": password}
     s = requests.Session()

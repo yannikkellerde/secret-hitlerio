@@ -3,40 +3,79 @@ from event_status import EventStatus
 from event_builder import EventBuilder
 from dacite import from_dict
 from state_model import GameUpdate
+from game_list_model import GameList
+from dataclasses import asdict
+from event_models import CreationData, UserData
+from log_util import log
 import json
 import os
 
 
 def register_events(
-    sio: socketio.Client, status: EventStatus, event_builder: EventBuilder, cookie
+    sio: socketio.Client,
+    status: EventStatus,
+    event_builder: EventBuilder,
+    cookie,
+    am_game_creator=False,
 ):
     @sio.event
     def connect():
+        sio.emit("sendUser", asdict(UserData(userName=event_builder.player.username)))
+        sio.emit("getUserGameSettings")
         sio.emit("confirmTOU")
-        print("I'm connected!")
+        log("I'm connected!")
 
     @sio.event
     def disconnect():
-        print("got disconnected :(")
+        log("got disconnected :(")
+
+    @sio.event
+    def fetchUser():
+        sio.emit("sendUser", asdict(UserData(userName=event_builder.player.username)))
 
     @sio.event
     def gameList(data):
-        print("gameList", data)
-        if len(data) > 0 and status.game is None:
-            status.game = data[0]["uid"]
-            if status.tou_ready and not status.join_initialized:
-                status.join_initialized = True
-                sio.emit("updateSeatedUser", {"uid": status.game})
-            elif not status.tou_ready:
-                sio.emit("confirmTOU")
+        log("gameList", data)
+        if len(data) > 0:
+            gls = [from_dict(data=game, data_class=GameList) for game in data]
+            if status.game is None:
+                if status.tou_ready and not status.join_initialized:
+                    status.game = gls[0].uid
+                    status.join_initialized = True
+                    sio.emit("updateSeatedUser", {"uid": status.game})
+                elif not status.tou_ready:
+                    sio.emit("confirmTOU")
+            for gl in gls:
+                if gl.uid == status.game:
+                    event_builder.player.update_with_game_list(gl)
+        elif am_game_creator:
+            if status.am_in_user_list:
+                if status.tou_ready and not status.creation_request_sent:
+                    status.creation_request_sent = True
+                    sio.emit("addNewGame", asdict(CreationData()))
+                else:
+                    sio.emit("confirmTOU")
+            else:
+                sio.emit("getUserGameSettings")
+
+    @sio.event
+    def userList(data):
+        if not status.am_in_user_list:
+            for user in data["list"]:
+                log(user)
+                if user["userName"] == event_builder.player.username:
+                    status.am_in_user_list = True
+                    if not status.creation_request_sent:
+                        sio.emit("getGameList")
+                    break
+            else:
+                sio.emit("getUserGameSettings")
 
     @sio.event
     def touChangeConfirmed(data):
-        print("touChangeConfirmed", data)
+        log("touChangeConfirmed", data)
         status.tou_ready = True
-        if status.game and not status.join_initialized:
-            status.join_initialized = True
-            sio.emit("updateSeatedUser", {"uid": status.game})
+        sio.emit("getGameList")
 
     @sio.event
     def updateSeatForUser(data=None):
@@ -44,11 +83,11 @@ def register_events(
             sio.emit("getGameInfo", status.game)
             sio.emit("updateUserStatus", ("", status.game))
             status.fully_joined = True
-            print("Successfully joined game", status.game)
+            log("Successfully joined game", status.game)
 
     @sio.event
     def gameUpdate(*data):
-        game_update = from_dict(data[0], GameUpdate)
+        game_update = from_dict(data=data[0], data_class=GameUpdate)
         event_builder.new_game_update(game_update)
 
     @sio.event

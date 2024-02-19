@@ -1,0 +1,733 @@
+01:01:11 I'm connected!
+01:01:11 gameList []
+01:01:11 {'userName': 'Rexxar', 'losses': 1, 'eloOverall': 1596, 'eloSeason': 1596, 'lossesSeason': 1}
+01:01:11 touChangeConfirmed True
+01:01:11 gameList []
+01:01:11 {'userName': 'Rexxar', 'losses': 1, 'eloOverall': 1596, 'eloSeason': 1596, 'lossesSeason': 1}
+01:01:11 {'userName': 'Anduin', 'wins': 1, 'losses': 2, 'eloOverall': 1597, 'eloSeason': 1597, 'winsSeason': 1, 'lossesSeason': 2}
+01:01:11 {'userName': 'Thrall', 'wins': 2, 'losses': 1, 'eloOverall': 1603, 'eloSeason': 1603, 'winsSeason': 2, 'lossesSeason': 1}
+01:01:11 gameList []
+01:01:12 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Jaina'], 'customCardback': [None], 'customCardbackUid': [None], 'gameStatus': 'notStarted', 'seatedCount': 1, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 0, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:12 Successfully joined game BoringDirtyUncoveredKingfisher
+01:01:15 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 0, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:15 Player Thrall received event {'event': <Event.PERSONAL_ROLE_CALL: 'PERSONAL_ROLE_CALL'>, 'role': 'liberal'}
+01:01:15 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:15 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:15 ['gameState.phase', None, 'selectingChancellor']
+01:01:15 Thrall [<Event.NOMINATION: 'NOMINATION'>]
+01:01:17 Action NOMINATION with {'chancellorIndex': 3} from Thrall
+01:01:17 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 0, 'chanc': 3}
+01:01:17 Thrall [<Event.NOMINATION: 'NOMINATION'>]
+01:01:17 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:18 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 1, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:19 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:01:19 Action NOMINATION was overridden
+01:01:19 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:19 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:19 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:19 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 ['gameState.phase', 'voting', 'selectingChancellor']
+01:01:21 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['nein', 'nein', 'nein', 'ja', 'nein']}
+01:01:21 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:21 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 2, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:23 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:23 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:23 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:23 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:23 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:23 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:23 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 1, 'chanc': 0}
+01:01:23 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:23 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:25 Action MESSAGE was overridden
+01:01:25 Action MESSAGE was overridden
+01:01:25 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:01:25 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:25 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:25 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 1}
+01:01:25 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:25 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 ['gameState.phase', 'voting', 'selectingChancellor']
+01:01:27 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['nein', 'nein', 'ja', 'nein', 'nein']}
+01:01:27 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:27 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 3, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:29 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:29 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:29 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:29 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:29 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:29 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 2, 'chanc': 3}
+01:01:29 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:29 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:31 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:01:31 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:31 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:31 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:31 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:31 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:31 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:31 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:33 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:01:33 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'ja', 'nein', 'ja']}
+01:01:33 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:35 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:35 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:35 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:35 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:35 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 2}
+01:01:35 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:01:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:35 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:35 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:01:35 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 1}
+01:01:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:35 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 1, 'electionCount': 3, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:35 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:01:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:37 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:37 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:37 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:37 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:37 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:37 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:37 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:37 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'bb'}
+01:01:37 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:38 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 1, 'electionCount': 4, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:39 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 3, 'chanc': 2}
+01:01:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:39 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:39 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:01:39 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:41 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:41 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:41 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:43 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:43 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rrr'}
+01:01:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:43 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:43 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:43 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:44 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:01:44 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'ja', 'nein', 'ja', 'nein']}
+01:01:44 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:44 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:01:44 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'ja', 'nein', 'ja', 'nein']}
+01:01:44 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:45 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:01:45 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:45 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:45 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:45 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:45 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:45 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:45 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:45 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:47 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:01:47 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 2, 'electionCount': 4, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:47 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 2}
+01:01:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:47 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:47 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:47 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:01:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:47 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:47 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:49 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:01:49 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'rr'}
+01:01:49 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:49 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 4, 'chanc': 0}
+01:01:49 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:49 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:49 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:01:49 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:49 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:49 Action MESSAGE was overridden
+01:01:49 Action MESSAGE was overridden
+01:01:50 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 2, 'electionCount': 5, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:51 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rbb'}
+01:01:51 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:53 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:53 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:53 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:01:53 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:53 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:01:53 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:53 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:53 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:01:53 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'nein', 'ja', 'ja']}
+01:01:53 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:55 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:01:55 Player Thrall received event {'event': <Event.GET_CARD: 'GET_CARD'>, 'hand': ['liberal', 'fascist']}
+01:01:55 Action PLAY_CARD with {'selection': 0} from Thrall
+01:01:55 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:55 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:55 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:55 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:55 Action MESSAGE was overridden
+01:01:55 Action MESSAGE was overridden
+01:01:55 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:01:55 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:01:55 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:01:55 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'liberal', 'num': 1}
+01:01:55 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:01:55 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 2, 'electionCount': 5, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:56 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:01:56 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, <Event.NOMINATION: 'NOMINATION'>]
+01:01:57 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:01:57 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, <Event.NOMINATION: 'NOMINATION'>]
+01:01:57 Action NOMINATION with {'chancellorIndex': 1} from Thrall
+01:01:57 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:01:57 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, <Event.NOMINATION: 'NOMINATION'>]
+01:01:57 Action NOMINATION was overridden
+01:01:57 Action CHANCELLOR_CLAIM was overridden
+01:01:57 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 0, 'chanc': 1}
+01:01:57 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, <Event.NOMINATION: 'NOMINATION'>]
+01:01:57 ['gameState.phase', 'selectingChancellor', 'voting']
+01:01:59 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 2, 'electionCount': 6, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:01:59 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:01:59 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'bbb'}
+01:01:59 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:01:59 Action NOMINATION was overridden
+01:01:59 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'bbb'}
+01:01:59 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:01:59 Action NOMINATION was overridden
+01:02:01 Action CHANCELLOR_CLAIM with {'claimState': 'br'} from Thrall
+01:02:01 Action CHANCELLOR_CLAIM was overridden
+01:02:01 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:01 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:03 Action CHANCELLOR_CLAIM with {'claimState': 'bb'} from Thrall
+01:02:03 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:03 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:05 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:05 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:05 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:07 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:07 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:07 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:09 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:09 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'bb'}
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:14 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:02:14 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['nein', 'ja', 'nein', 'ja', 'ja']}
+01:02:14 Player Thrall received event {'event': <Event.DRAW: 'DRAW'>, 'hand': ['fascist', 'fascist', 'fascist']}
+01:02:16 Action DISCARD with {'selection': 2} from Thrall
+01:02:16 Action MESSAGE was overridden
+01:02:16 Action MESSAGE was overridden
+01:02:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:16 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:02:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:18 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:02:18 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:18 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:18 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:18 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:18 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:18 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:18 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:18 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:18 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:18 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 3}
+01:02:18 Thrall [<Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>]
+01:02:18 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 3, 'electionCount': 6, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:20 Action PRESIDENT_CLAIM with {'claimState': 'bbb'} from Thrall
+01:02:20 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:20 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'bbb'}
+01:02:20 Player Thrall received event {'event': <Event.PEEK_MESSAGE: 'PEEK_MESSAGE'>}
+01:02:22 Action PEEK_MESSAGE with {} from Thrall
+01:02:22 Player Thrall received event {'event': <Event.PEEK_PERSONAL: 'PEEK_PERSONAL'>, 'hand': ['liberal', 'liberal', 'fascist']}
+01:02:22 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:22 Thrall [<Event.PEEK_MESSAGE: 'PEEK_MESSAGE'>]
+01:02:22 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:02:22 Thrall [<Event.PEEK_CLAIM: 'PEEK_CLAIM'>]
+01:02:22 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 3, 'electionCount': 7, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:24 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 1, 'chanc': 2}
+01:02:24 Thrall [<Event.PEEK_CLAIM: 'PEEK_CLAIM'>]
+01:02:24 Action PEEK_CLAIM with {'claimState': 'rrr'} from Thrall
+01:02:24 Action PEEK_CLAIM was overridden
+01:02:24 ['gameState.phase', 'selectingChancellor', 'voting']
+01:02:26 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:02:26 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:26 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:28 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:28 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:28 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:28 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:28 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:28 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:28 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:28 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 3, 'electionCount': 8, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:28 ['gameState.phase', 'voting', 'selectingChancellor']
+01:02:28 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'ja', 'nein', 'nein']}
+01:02:28 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:30 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Player Thrall received event {'event': <Event.PEEK_CLAIM: 'PEEK_CLAIM'>, 'hand': 'rrr'}
+01:02:30 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:30 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:30 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'rr'}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 2, 'chanc': 3}
+01:02:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:30 ['gameState.phase', 'selectingChancellor', 'voting']
+01:02:32 Action MESSAGE was overridden
+01:02:32 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:32 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:32 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:32 Low prio action MESSAGE was ignored in favor of PERSONAL_VOTE
+01:02:32 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:32 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:32 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 1}
+01:02:32 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:02:32 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:32 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:32 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:32 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:34 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 ['gameState.phase', 'voting', 'selectingChancellor']
+01:02:34 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['nein', 'ja', 'nein', 'nein', 'nein']}
+01:02:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:34 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 1, 'enactedFascistPolicyCount': 3, 'electionCount': 9, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:36 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:36 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:36 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:36 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:36 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:36 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 3, 'chanc': 0}
+01:02:36 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:36 ['gameState.phase', 'selectingChancellor', 'voting']
+01:02:38 Action MESSAGE was overridden
+01:02:38 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:02:38 Action MESSAGE was overridden
+01:02:38 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:38 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:38 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:38 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:40 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:40 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:40 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:40 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 2}
+01:02:40 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:40 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:40 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:40 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:02:40 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'ja', 'ja', 'nein', 'ja']}
+01:02:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:42 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:42 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:42 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:42 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:42 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:42 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:02:42 Player Thrall received event {'event': <Event.GET_CARD: 'GET_CARD'>, 'hand': ['liberal', 'liberal']}
+01:02:42 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:42 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:44 Action PLAY_CARD with {'selection': 3} from Thrall
+01:02:44 Action MESSAGE was overridden
+01:02:44 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:02:44 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:44 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:44 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:44 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:44 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'liberal', 'num': 2}
+01:02:44 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:44 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 2, 'enactedFascistPolicyCount': 3, 'electionCount': 9, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:44 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:44 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:44 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:02:44 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:46 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 4, 'chanc': 2}
+01:02:46 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:46 Action CHANCELLOR_CLAIM with {'claimState': 'rb'} from Thrall
+01:02:46 Action MESSAGE was overridden
+01:02:46 Action CHANCELLOR_CLAIM was overridden
+01:02:46 Action CHANCELLOR_CLAIM was overridden
+01:02:46 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:46 Action CHANCELLOR_CLAIM with {'claimState': 'rb'} from Thrall
+01:02:46 Thrall [<Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>]
+01:02:46 ['gameState.phase', 'selectingChancellor', 'voting']
+01:02:47 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 2, 'enactedFascistPolicyCount': 3, 'electionCount': 10, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:48 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:02:48 Action CHANCELLOR_CLAIM was overridden
+01:02:48 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:48 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:50 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:50 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'rb'}
+01:02:50 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:02:50 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:50 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:50 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:50 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:50 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rbb'}
+01:02:50 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:50 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:50 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:50 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:02:50 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'ja', 'nein', 'ja']}
+01:02:50 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:52 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:02:52 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:52 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:52 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:52 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:02:52 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:52 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:52 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:52 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:52 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:52 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 4}
+01:02:52 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:52 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 2, 'enactedFascistPolicyCount': 4, 'electionCount': 10, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:52 ['gameState.phase', 'enactPolicy', 'execution']
+01:02:52 Player Thrall received event {'event': <Event.EXECUTE_MESSAGE: 'EXECUTE_MESSAGE'>}
+01:02:52 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:54 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rrb'}
+01:02:54 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:54 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:54 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:54 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:54 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:54 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:54 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'rb'}
+01:02:54 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:56 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Thrall, 0 am a stupid player'}
+01:02:56 Player Thrall received event {'event': <Event.EXECUTE_ACTION: 'EXECUTE_ACTION'>, 'killed': 0, 'killer': 4}
+01:02:56 ['gameState.phase', 'execution', 'selectingChancellor']
+01:02:56 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:56 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:02:56 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:56 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:02:56 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:56 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:56 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:56 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:56 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 2, 'enactedFascistPolicyCount': 4, 'electionCount': 11, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:02:58 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 1, 'chanc': 4}
+01:02:58 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:58 ['gameState.phase', 'selectingChancellor', 'voting']
+01:02:58 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:02:58 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:02:58 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:58 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:02:58 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:02:58 Action MESSAGE was overridden
+01:03:00 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:14 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:14 ['gameState.phase', 'voting', 'selectingChancellor']
+01:03:14 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'nein', 'ja', 'nein']}
+01:03:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:14 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:14 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:14 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 2, 'enactedFascistPolicyCount': 4, 'electionCount': 12, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:16 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:16 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 1}
+01:03:16 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:16 ['gameState.phase', 'voting', 'selectingChancellor']
+01:03:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:03:16 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'nein', 'ja', 'nein']}
+01:03:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:16 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:16 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:16 ['gameState.phase', 'selectingChancellor', 'voting']
+01:03:18 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:03:18 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:18 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:20 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:20 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:03:20 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:20 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:20 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:20 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Uther, 4 am a stupid player'}
+01:03:20 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:20 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:20 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:20 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:03:20 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'ja', 'ja', 'ja']}
+01:03:20 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:22 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:22 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:22 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:22 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:03:22 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:22 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:22 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:24 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:03:24 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:24 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:24 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:24 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'liberal', 'num': 3}
+01:03:24 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:24 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 4, 'electionCount': 12, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:24 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:24 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:24 ['gameState.phase', 'enactPolicy', 'selectingChancellor']
+01:03:24 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:26 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:26 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:26 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:26 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:26 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:26 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:26 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:26 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 3, 'chanc': 1}
+01:03:26 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:26 ['gameState.phase', 'selectingChancellor', 'voting']
+01:03:27 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 4, 'electionCount': 13, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:28 Action MESSAGE was overridden
+01:03:28 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:03:28 Action MESSAGE was overridden
+01:03:28 Action MESSAGE was overridden
+01:03:28 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rrr'}
+01:03:28 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:30 Player Thrall received event {'event': <Event.ELECTION_FAIL: 'ELECTION_FAIL'>, 'num': 1}
+01:03:30 ['gameState.phase', 'voting', 'selectingChancellor']
+01:03:30 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'nein', 'nein', 'nein']}
+01:03:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:30 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 4, 'electionCount': 14, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:30 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 4, 'chanc': 3}
+01:03:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:30 ['gameState.phase', 'voting', 'selectingChancellor']
+01:03:30 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'nein', 'nein', 'nein', 'nein']}
+01:03:30 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:30 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:31 ['gameState.phase', 'selectingChancellor', 'voting']
+01:03:32 Action PERSONAL_VOTE with {'vote': False} from Thrall
+01:03:32 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:32 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:34 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:34 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:34 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:35 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:35 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:35 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:35 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:03:35 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'ja', 'ja', 'ja', 'ja']}
+01:03:35 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:36 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:36 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:36 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:37 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:03:37 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:39 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:39 ['gameState.phase', 'chancellorSelectingPolicy', 'enactPolicy']
+01:03:39 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:39 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 5}
+01:03:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:39 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 5, 'electionCount': 14, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:39 ['gameState.phase', 'enactPolicy', 'execution']
+01:03:39 Player Thrall received event {'event': <Event.EXECUTE_MESSAGE: 'EXECUTE_MESSAGE'>}
+01:03:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:39 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:39 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:40 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:40 Player Thrall received event {'event': <Event.CHANCELLOR_CLAIM: 'CHANCELLOR_CLAIM'>, 'hand': 'rr'}
+01:03:40 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:41 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:41 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:41 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:43 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+01:03:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:43 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:43 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:03:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:43 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 5, 'electionCount': 15, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:03:43 ['gameState.phase', 'execution', 'selectingChancellor']
+01:03:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:43 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:43 Player Thrall received event {'event': <Event.NOMINATION: 'NOMINATION'>, 'pres': 1, 'chanc': 4}
+01:03:43 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:43 ['gameState.phase', 'selectingChancellor', 'voting']
+01:03:45 Action PERSONAL_VOTE with {'vote': True} from Thrall
+01:03:45 Action MESSAGE was overridden
+01:03:45 Action MESSAGE was overridden
+01:03:45 Player Thrall received event {'event': <Event.EXECUTE_ACTION: 'EXECUTE_ACTION'>, 'killed': 2, 'killer': 1}
+01:03:47 ['gameState.phase', 'voting', 'presidentSelectingPolicy']
+01:03:47 Player Thrall received event {'event': <Event.VOTES: 'VOTES'>, 'votes': ['ja', 'ja', 'ja', 'ja', 'nein']}
+01:03:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:47 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:03:47 ['gameState.phase', 'presidentSelectingPolicy', 'chancellorSelectingPolicy']
+01:03:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:47 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Valeera, 3 am a stupid player'}
+01:03:47 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:03:49 ['gameState.phase', 'chancellorSelectingPolicy', 'chancellorVoteOnVeto']
+01:03:49 Action MESSAGE with {'chat': 'I, Thrall, 0 am a stupid player'} from Thrall
+01:04:01 Background carry stepping in with message action
+01:04:01 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:04:02 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Jaina, 1 am a stupid player'}
+01:04:02 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:04:02 Player Thrall received event {'event': <Event.PRESIDENT_CLAIM: 'PRESIDENT_CLAIM'>, 'hand': 'rrb'}
+01:04:02 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:04:02 Player Thrall received event {'event': <Event.CHANCELLOR_VETO: 'CHANCELLOR_VETO'>, 'veto': False}
+01:04:02 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:04:02 Player Thrall received event {'event': <Event.ENACTED: 'ENACTED'>, 'policy_type': 'fascist', 'num': 6}
+01:04:02 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 6, 'electionCount': 15, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:04:02 Thrall [<Event.NOOP: 'NOOP'>, <Event.MESSAGE: 'MESSAGE'>]
+01:04:02 Player Thrall received event {'event': <Event.FASCIST_WIN: 'FASCIST_WIN'>}
+01:04:05 gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Thrall', 'Jaina', 'Anduin', 'Valeera', 'Uther'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'fascist', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 3, 'enactedFascistPolicyCount': 6, 'electionCount': 15, 'rebalance6p': True, 'uid': 'BoringDirtyUncoveredKingfisher', 'isCustomGame': False}]
+01:04:11 Background carry stepping in with message action
+Traceback (most recent call last):
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/run_it_all.py", line 26, in <module>
+    fire.Fire(run_it_all)
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/fire/core.py", line 141, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/fire/core.py", line 475, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/run_it_all.py", line 22, in run_it_all
+    carry_in_the_back(builder, sio)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/background_carry.py", line 57, in carry_in_the_back
+    builder.perform_action(Event.MESSAGE)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/event_builder.py", line 50, in perform_action
+    act = self.player.request_action(event, self.gameUpdate)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/stupid_player.py", line 91, in request_action
+    match gameUpdate.playersState[self.pid].claim:
+IndexError: list index out of range
+01:04:12 Player Thrall received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+Exception in thread Thread-607 (_handle_eio_message):
+Traceback (most recent call last):
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/socketio/client.py", line 621, in _handle_eio_message
+    self._handle_event(pkt.namespace, pkt.id, pkt.data)
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/socketio/client.py", line 505, in _handle_event
+    r = self._trigger_event(data[0], namespace, *data[1:])
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/socketio/client.py", line 555, in _trigger_event
+    return self.handlers[namespace][event](*args)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/sio_events.py", line 91, in gameUpdate
+    event_builder.new_game_update(game_update)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/event_builder.py", line 67, in new_game_update
+    self.inform_diff(d)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/event_builder.py", line 130, in inform_diff
+    self.perform_action(Event.MESSAGE)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/event_builder.py", line 50, in perform_action
+    act = self.player.request_action(event, self.gameUpdate)
+  File "/home/yannikkellerde/github_repos/secret-hitler/python/stupid_player.py", line 91, in request_action
+    match gameUpdate.playersState[self.pid].claim:
+IndexError: list index out of range
+01:04:27 got disconnected :(
+Exception ignored in: <module 'threading' from '/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/threading.py", line 1567, in _shutdown
+    lock.acquire()
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/engineio/client.py", line 43, in signal_handler
+    return original_signal_handler(sig, frame)
+  File "/home/yannikkellerde/miniconda3/envs/sh_finetuning/lib/python3.10/site-packages/socketio/client.py", line 30, in signal_handler
+    return signal.default_int_handler(sig, frame)
+KeyboardInterrupt: 

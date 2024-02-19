@@ -1,0 +1,23 @@
+I'm connected!
+gameList []
+{'userName': 'Rexxar', 'losses': 1, 'eloOverall': 1596, 'eloSeason': 1596, 'lossesSeason': 1}
+touChangeConfirmed False
+{'userName': 'Rexxar', 'losses': 1, 'eloOverall': 1596, 'eloSeason': 1596, 'lossesSeason': 1}
+gameList []
+{'userName': 'Rexxar', 'losses': 1, 'eloOverall': 1596, 'eloSeason': 1596, 'lossesSeason': 1}
+{'userName': 'Jaina'}
+gameList []
+Successfully joined game None
+gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Jaina'], 'customCardback': [None], 'customCardbackUid': [None], 'gameStatus': 'notStarted', 'seatedCount': 1, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 0, 'rebalance6p': True, 'uid': 'RattyFamousAbhorrentMeerkat', 'isCustomGame': False}]
+Player Jaina received event {'event': <Event.START: 'START'>}
+gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Jaina', 'Thrall', 'Anduin', 'Uther', 'Valeera'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 0, 'rebalance6p': True, 'uid': 'RattyFamousAbhorrentMeerkat', 'isCustomGame': False}]
+Player Jaina received event {'event': <Event.PERSONAL_ROLE_CALL: 'PERSONAL_ROLE_CALL'>, 'role': 'liberal'}
+gameList [{'name': 'eyo', 'flag': 'none', 'userNames': ['Jaina', 'Thrall', 'Anduin', 'Uther', 'Valeera'], 'customCardback': [None, None, None, None, None], 'customCardbackUid': [None, None, None, None, None], 'gameStatus': 'isStarted', 'seatedCount': 5, 'gameCreatorName': 'Jaina', 'minPlayersCount': 5, 'maxPlayersCount': 5, 'excludedPlayerCount': [], 'experiencedMode': True, 'playerChats': 'enabled', 'enactedLiberalPolicyCount': 0, 'enactedFascistPolicyCount': 0, 'electionCount': 1, 'rebalance6p': True, 'uid': 'RattyFamousAbhorrentMeerkat', 'isCustomGame': False}]
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Jaina, 0 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 1, 'text': 'I, Thrall, 1 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Valeera, 4 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 4, 'text': 'I, Valeera, 4 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 0, 'text': 'I, Jaina, 0 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 2, 'text': 'I, Anduin, 2 am a stupid player'}
+Player Jaina received event {'event': <Event.MESSAGE: 'MESSAGE'>, 'player': 3, 'text': 'I, Uther, 3 am a stupid player'}

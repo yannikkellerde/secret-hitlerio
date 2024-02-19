@@ -12,6 +12,7 @@ from datetime import datetime
 from socketio import Client
 import re
 from typing import Optional
+from log_util import log
 
 ignores = [
     "leftGame",
@@ -24,7 +25,6 @@ ignores = [
     "isFlipped",
     "undrawnPolicyCount",
     "customGameSettings",
-    "notificationStatus",
 ]
 
 
@@ -49,7 +49,7 @@ class EventBuilder:
     def perform_action(self, event: Event):
         act = self.player.request_action(event, self.gameUpdate)
         if self.client is not None and act is not None:
-            self.player.action_to_server(self.client, act["event"], **act)
+            self.player.action_to_server(self.client, **act)
 
     def new_game_update(self, game_update: GameUpdate):
         if self.gameUpdate is None:
@@ -60,10 +60,10 @@ class EventBuilder:
             diff = dataclass_diff(old_game_state, self.gameUpdate, ignores)
             some_diff = [x for x in diff if not x[0].startswith("chats")]
             # if some_diff:
-            #    print(some_diff)
-            # if "veto" in str(diff):
-            #    print(diff)
+            #    log(some_diff)
             for d in diff:
+                if "phase" in str(d):
+                    log(d)
                 self.inform_diff(d)
             if self.next_timestamp is not None:
                 self.chat_timestamp = self.next_timestamp
@@ -72,7 +72,7 @@ class EventBuilder:
     def inform_diff(self, diff):
         d_first, nums = diff_split(diff[0])
         if d_first.endswith("discard"):
-            print(diff)
+            log(diff)
         match d_first:
             case "gameState.isCompleted":
                 if diff[2]:
@@ -179,7 +179,7 @@ class EventBuilder:
             case "general.status":
                 if diff[2] == "President to peek at policies.":
                     self.new_event({"event": Event.PEEK_MESSAGE})
-                    self.perform_action(Event.MESSAGE)
+                    self.perform_action(Event.PEEK_MESSAGE)
             case "gameState.isStarted":
                 if not diff[1] and diff[2]:
                     self.new_event({"event": Event.START})
@@ -239,6 +239,8 @@ class EventBuilder:
                                 }
                             )
                             self.perform_action(Event.DISCARD)
+                        else:
+                            self.perform_action(Event.MESSAGE)
                     case "chancellorSelectingPolicy":
                         if (
                             self.gameUpdate.publicPlayersState[
@@ -253,6 +255,8 @@ class EventBuilder:
                                 }
                             )
                             self.perform_action(Event.PLAY_CARD)
+                        else:
+                            self.perform_action(Event.MESSAGE)
 
 
 def simulate_from_file(fpath):
@@ -265,7 +269,7 @@ def simulate_from_file(fpath):
             data_class=GameUpdate, data=el, config=Config(strict=True)
         )
         builder.new_game_update(game_update)
-    print(json.dumps(builder.events, indent=4))
+    log(json.dumps(builder.events, indent=4))
 
 
 if __name__ == "__main__":

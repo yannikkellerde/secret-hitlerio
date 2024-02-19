@@ -3,6 +3,8 @@ from sh_game import Event
 from state_model import GameUpdate
 from socketio import Client
 from constants import claim_map
+from game_list_model import GameList
+from log_util import log
 
 
 class Player(ABC):
@@ -13,6 +15,13 @@ class Player(ABC):
         self.username = username
         self.is_smart = is_smart
 
+    def update_with_game_list(self, game_list: GameList):
+        for i, name in enumerate(game_list.userNames):
+            if name == self.username:
+                self.pid = i
+                break
+        self.game_id = game_list.uid
+
     @abstractmethod
     def inform_event(self, event: dict[str, str | Event]):
         pass
@@ -22,7 +31,13 @@ class Player(ABC):
         pass
 
     def action_to_server(self, sio: Client, event: Event, **kwargs):
+        log(f"Action {event} with {kwargs} from {self.username}")
         match event:
+            case Event.PEEK_MESSAGE:
+                sio.emit(
+                    "selectedPolicies",
+                    {"uid": self.game_id},
+                )
             case Event.PERSONAL_VOTE:
                 assert "vote" in kwargs
                 sio.emit(

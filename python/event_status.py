@@ -10,3 +10,5 @@ class EventStatus:
     join_initialized: bool = False
     collected_actions: list = field(default_factory=list)
     player_chat: list = field(default_factory=list)
+    creation_request_sent: bool = False
+    am_in_user_list: bool = False
