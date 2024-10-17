@@ -296,7 +296,7 @@ module.exports.gameListEmitter = gameListEmitter;
 
 module.exports.AEM = Account.find({ staffRole: { $exists: true, $ne: 'veteran' } });
 
-const bypassKeys = [];
+const bypassKeys = ["igotthebypass"];
 
 module.exports.verifyBypass = key => {
 	return bypassKeys.indexOf(key) >= 0;

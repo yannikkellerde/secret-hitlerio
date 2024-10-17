@@ -43,6 +43,8 @@ console.log('Creating accounts in MongoDB.  May give errors for repeated runs.')
 
 let m;
 
-while ((m = nameRegex.exec(fileString))) {
-	createUser(m[1]);
+usernames = ["Rexxar", "Malfurion", "Jaina", "Uther", "Anduin", "Valeera", "Thrall", "Guldan", "Garrosh", "aaa", "bbb", "ccc", "ddd", "eee", "fff", "yannik", "thomas", "levin", "tobias", "chaewon"]
+
+for (let i = 0; i < usernames.length; i++) {
+	createUser(usernames[i]);
 }

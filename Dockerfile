@@ -16,9 +16,8 @@ RUN export NVM_DIR="$HOME/.nvm" && \
     nvm use "16.13.0" && \
     yarn
     
+ADD on_start.bash /app
+    
 ENTRYPOINT ["/usr/bin/env"]
 #CMD [ "bash", "-c", "sleep 10000" ]
-CMD [ "bash", "-c", "export NVM_DIR=$HOME/.nvm && \
-    [ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh && \
-    [ -s $NVM_DIR/bash_completion ] && . $NVM_DIR/bash_completion && \
-    nvm use 16.13.0 && yarn prod" ]
+CMD [ "bash", "/app/on_start.bash" ]

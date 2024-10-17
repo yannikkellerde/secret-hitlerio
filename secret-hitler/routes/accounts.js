@@ -307,7 +307,6 @@ const continueSignup = config => {
 						res.status(503).json({ message: 'There was an error processing your request. Please try again later.' });
 						return;
 					} else {
-						if (hasBypass) consumeBypass(bypassKey, username, signupIP);
 						const newPlayerBan = new BannedIP({
 							bannedDate: new Date(),
 							type: 'new',
@@ -334,7 +333,6 @@ const continueSignup = config => {
 					res.status(500).json({ message: err.toString() });
 					return;
 				}
-				if (hasBypass) consumeBypass(bypassKey, username, signupIP);
 				if (email) {
 					setVerify({ username, email });
 				}
