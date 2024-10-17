@@ -21,14 +21,16 @@ let store;
 if (process.env.NODE_ENV !== 'production') {
 	const MongoDBStore = require('connect-mongodb-session')(session);
 	store = new MongoDBStore({
-		uri: 'mongodb://localhost:27017/secret-hitler-app',
+		uri: process.env.MONGO_URL + `secret-hitler-app`,
 		collection: 'sessions'
 	});
 } else {
-	const redis = require('redis').createClient();
+	const redis = require('redis').createClient({
+		host: process.env.REDIS_HOST,
+	});
 	const RedisStore = require('connect-redis')(session);
 	store = new RedisStore({
-		host: '127.0.0.1',
+		host: process.env.REDIS_HOST,
 		port: 6379,
 		client: redis,
 		ttl: 2 * 604800 // 2 weeks
@@ -139,7 +141,7 @@ if (process.env.DISCORDCLIENTID) {
 
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
-mongoose.connect(`mongodb://localhost:27017/secret-hitler-app`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;

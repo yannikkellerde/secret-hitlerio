@@ -49,7 +49,7 @@ export default class Creategame extends React.Component {
 			flappyMode: false,
 			flappyOnlyMode: false,
 			privateAnonymousRemakes: false,
-			allowBots: false,
+			allowBots: true,
 			customGameSettings: {
 				enabled: false,
 				// Valid powers: investigate, deckpeek, election, bullet; null for no power
@@ -1067,7 +1067,8 @@ export default class Creategame extends React.Component {
 				customGameSettings: this.state.customGameSettings.enabled ? this.state.customGameSettings : undefined,
 				avalonSH: this.state.avalonSH,
 				withPercival: this.state.avalonSH && this.state.withPercival,
-				noTopdecking: this.state.noTopdecking ? this.state.noTopdecking[0] : 0
+				noTopdecking: this.state.noTopdecking ? this.state.noTopdecking[0] : 0,
+				allowBots: this.state.allowBots,
 			};
 
 			if (this.state.isTourny) {
@@ -2323,7 +2324,7 @@ export default class Creategame extends React.Component {
 							/>
 						</div>
 						<div className="four wide column">
-							<i class="fa-solid fa-robot"></i>
+							<i class="big gamepad icon"></i>
 							<h4 className="ui header">Allow Bots to join the game</h4>
 								<Switch
 									className="create-game-switch"
@@ -2332,7 +2333,7 @@ export default class Creategame extends React.Component {
 											allowBots: checked,
 										});
 									}}
-									checked={this.state.checked}
+									checked={this.state.allowBots}
 									onColor="#627cc8"
 									offColor="#444444"
 									uncheckedIcon={false}

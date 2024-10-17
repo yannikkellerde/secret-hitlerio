@@ -49,7 +49,7 @@ dumpDateTo = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDa
 
 // Connect to mongo
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost:27017/secret-hitler-app`);
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`);
 
 // Dump summaries for the day
 const summaries = [];

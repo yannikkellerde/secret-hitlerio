@@ -5,7 +5,6 @@ const extractSass = new ExtractTextPlugin({
 	filename: '../styles/style-main.css',
 	disable: process.env.NODE_ENV === 'development'
 });
-const Dotenv = require('dotenv-webpack');
 
 process.env.NODE_ENV = 'production';
 
@@ -16,10 +15,7 @@ module.exports = {
 		path: path.resolve(__dirname, '../public/scripts')
 	},
 	plugins: [
-		extractSass,
-		new Dotenv({
-			path: path.resolve(__dirname, '..', '.env')
-		})
+		extractSass
 	],
 	optimization: {
 		minimizer: [

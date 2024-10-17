@@ -10,7 +10,7 @@ const data = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost:27017/secret-hitler-app`);
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`);
 
 Account.find({ lastCompletedGame: { $gte: new Date(Date.now() - 86400000) } })
 	.cursor()

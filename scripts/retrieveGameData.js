@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const Game = require('../models/game');
+const Game = require('../secret_hitler/models/game');
 const moment = require('moment');
 const fs = require('fs');
 const data = {};
-const { CURRENTSEASONNUMBER } = require('../src/frontend-scripts/node-constants');
+const { CURRENTSEASONNUMBER } = require('../../src/frontend-scripts/node-constantsnode-constants');
 
 const allPlayerGameData = {
 	fascistWinCount: 0,
@@ -61,7 +61,7 @@ const tenPlayerGameData = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost:27017/secret-hitler-app`);
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`);
 
 Game.find({})
 	.cursor()

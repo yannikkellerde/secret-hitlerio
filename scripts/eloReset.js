@@ -5,7 +5,7 @@ const _ = require('lodash');
 const { awardBadgePrequeried } = require('../routes/socket/badges');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost:27017/secret-hitler-app`);
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`);
 
 let count = 0;
 

@@ -1,4 +1,4 @@
-const Account = require('../models/account');
+const Account = require('../secret_hitler/models/account');
 const mongoose = require('mongoose');
 const fs = require('fs');
 
@@ -49,7 +49,7 @@ db.once('open', function() {
 	getMoreData(0);
 });
 
-mongoose.connect('mongodb://localhost:32000/secret-hitler-app', (err, db) => {
+mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`, (err, db) => {
 	if (err) console.error(err);
 	else console.log('Connect ok!');
 });
