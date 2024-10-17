@@ -176,10 +176,5 @@
 		"**/event-stream": "^4.0.1",
 		"tunnel-agent": "^0.6.0",
 		"braces": "^2.3.1"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "yarn lint && pretty-quick --staged"
-		}
 	}
 }

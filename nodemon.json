@@ -1,3 +1,0 @@
-{
-	"ignore": ["webpack/*", "public/*", "src/*", "data/*", "logs/*", "node_modules/*", "scripts/*", "docs/*"]
-}
