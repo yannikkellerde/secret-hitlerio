@@ -10,7 +10,6 @@ variables:
 stages:
   - linters
   - init
-  - build
   - docker
   - deploy
   - undeploy
