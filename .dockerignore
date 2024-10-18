@@ -1,0 +1,9 @@
+**/.git
+**/.github
+*.md
+Dockerfile*
+.dockerignore
+.gitignore
+chart
+*.yml
+!credentials.yml

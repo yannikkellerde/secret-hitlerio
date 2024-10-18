@@ -30,7 +30,7 @@ const createUser = function(username) {
 			}
 		});
 	});
-	req.write(`{\"username\":\"${username}\",\"password\":\"snipsnap\",\"password2\":\"snipsnap\",\"isPrivate\":false}`);
+	req.write(`{\"username\":\"${username}\",\"password\":\"snipsnap\",\"password2\":\"snipsnap\",\"isPrivate\":false,\"bypassKey\":\"igotthebypass\"}`);
 	req.end();
 };
 

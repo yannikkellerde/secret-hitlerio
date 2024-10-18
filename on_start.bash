@@ -6,3 +6,4 @@ nvm use 16.13.0
 yarn prod&
 sleep 3
 yarn create-accounts
+sleep 10000000
