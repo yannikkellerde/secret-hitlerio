@@ -1,3 +1,4 @@
 variables:
   APP_NAME: secret-hitlerio
   NAMESPACE: llm-social-deduction
+  CHILD_PIPELINE_EXECUTION_CONTEXT: secret-hitler
