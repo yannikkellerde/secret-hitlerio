@@ -1,6 +1,6 @@
 FROM node:16.13.0-stretch
 
-ADD secret-hitler / app/
+ADD . / app/
 WORKDIR /app
 
 RUN yarn
