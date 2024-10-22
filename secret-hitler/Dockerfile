@@ -1,4 +1,4 @@
-FROM 16.13.0-stretch
+FROM node:16.13.0-stretch
 
 ADD secret-hitler / app/
 WORKDIR /app
