@@ -5,7 +5,7 @@ include:
   - local: "app.yml"
 
 build:
-  image: ${CI_REGISTRY}/${DOCKER_REGISTRY_PREFIX}/node:16.13.0-stretch
+  image: node:16.13.0-stretch
   script:
     - yarn install
     - yarn build
