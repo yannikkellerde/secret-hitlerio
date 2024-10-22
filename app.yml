@@ -1,0 +1,3 @@
+variables:
+  APP_NAME: secret-hitlerio
+  NAMESPACE: llm-social-deduction
