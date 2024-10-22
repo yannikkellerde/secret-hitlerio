@@ -4,15 +4,7 @@ include:
     file: "react-app.yml"
   - local: "app.yml"
 
-stages:
-  - linters
-  - init
-  - docker
-  - build
-  - deploy
-  - undeploy
-
 build:
-  image: "${CI_REGISTRY}/${DOCKER_REGISTRY_PREFIX}/${IMAGE_NAME}:${IMAGE_TAG}"
+  image: node:16.13.0-stretch
   script:
     - yarn build
