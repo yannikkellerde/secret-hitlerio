@@ -3,7 +3,7 @@ services:
   app:
     image: app
     build:
-      dockerfile: Dockerfile
+      dockerfile: secret-hitler/Dockerfile
       context: .
     environment:
       PORT: 8080

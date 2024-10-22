@@ -7,4 +7,5 @@ include:
 build:
   image: node:16.13.0-stretch
   script:
-    - yarn
+    - yarn install
+    - yarn build
