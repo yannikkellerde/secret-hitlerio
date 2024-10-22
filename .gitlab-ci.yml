@@ -3,3 +3,16 @@ include:
     ref: "2.1.12"
     file: "react-app.yml"
   - local: "app.yml"
+
+stages:
+  - linters
+  - init
+  - docker
+  - build
+  - deploy
+  - undeploy
+
+build:
+  image: "${CI_REGISTRY}/${DOCKER_REGISTRY_PREFIX}/${IMAGE_NAME}:${IMAGE_TAG}"
+  script:
+    - yarn build
