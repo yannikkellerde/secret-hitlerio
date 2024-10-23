@@ -9,6 +9,9 @@ const extractSass = new ExtractTextPlugin({
 process.env.NODE_ENV = 'production';
 
 module.exports = {
+	cache: {
+		type: 'filesystem'
+	},
 	entry: './src/frontend-scripts/game-app.js',
 	output: {
 		filename: `bundle.js`,

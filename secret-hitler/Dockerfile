@@ -12,6 +12,7 @@ ADD . / app/
 WORKDIR /app
 
 RUN yarn
+RUN yarn build
 
 ENTRYPOINT ["/usr/bin/env"]
 CMD [ "bash", "/app/on_start.bash" ]

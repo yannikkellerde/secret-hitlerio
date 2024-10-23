@@ -157,12 +157,14 @@
 		"inspect": "cross-env NODE_ENV=development nodemon --inspect=9137 bin/dev.js",
 		"inspect_prod": "cross-env NODE_ENV=production nodemon --inspect=9137 bin/dev.js",
 		"server": "cross-env NODE_ENV=development nodemon bin/dev.js",
+		"server_prod": "cross-env NODE_ENV=production node bin/prod.js",
 		"start": "webpack --watch --config webpack/webpack.config.dev --mode development",
 		"start_prod": "webpack --watch --config webpack/webpack.config.prod --mode production",
 		"lint": "esw src/**/*.jsx scripts/ routes/ webpack/ models/ iso/",
 		"build-css:web": "node-sass --include-path src/scss src/scss/style-web.scss public/styles/style-web.css",
 		"build-css:dark": "node-sass --include-path src/scss src/scss/style-dark.scss public/styles/style-dark.css",
-		"prod": "concurrently --names \"SERVER,MONGO,WEBPACK\" -c \"bgCyanBright.black,bgYellowBright.black,bgMagentaBright.whiteBright\" --handle-input \"yarn:inspect_prod\" \"yarn:start_prod\""
+		"prod": "concurrently --names \"SERVER\" -c \"bgCyanBright.black,bgYellowBright.black,bgMagentaBright.whiteBright\" --handle-input \"yarn:server_prod\"",
+		"prod_watch": "concurrently --names \"SERVER,WEBPACK\" -c \"bgCyanBright.black,bgYellowBright.black,bgMagentaBright.whiteBright\" --handle-input \"yarn:inspect_prod\" \"yarn:start_prod\""
 	},
 	"jest": {
 		"setupFilesAfterEnv": [
