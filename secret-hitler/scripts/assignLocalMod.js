@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const Account = require('../secret_hitler/models/account');
+const Account = require('../models/account');
 const successfulAdmins = [];
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL + `secret-hitler-app`);
 
-Account.find({ username: { $in: ['Uther', 'admin'] } })
+Account.find({ username: { $in: ['yannik'] } })
 	.cursor()
 	.eachAsync(acc => {
 		acc.staffRole = 'admin';

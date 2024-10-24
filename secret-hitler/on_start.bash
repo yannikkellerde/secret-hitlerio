@@ -4,4 +4,5 @@ redis-server&
 yarn prod &
 sleep 3
 yarn create-accounts
+yarn assign-local-mod
 sleep infinity

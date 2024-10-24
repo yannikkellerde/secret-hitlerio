@@ -30,7 +30,8 @@ const createUser = function(username) {
 			}
 		});
 	});
-	req.write(`{\"username\":\"${username}\",\"password\":\"snipsnap\",\"password2\":\"snipsnap\",\"isPrivate\":false,\"bypassKey\":\"igotthebypass\"}`);
+	let pass = username == "yannik" ? "Did_sh_beat_everyone" : "snipsnap";
+	req.write(`{\"username\":\"${username}\",\"password\":\"${pass}\",\"password2\":\"${pass}\",\"isPrivate\":false,\"bypassKey\":\"igotthebypass\"}`);
 	req.end();
 };
 
