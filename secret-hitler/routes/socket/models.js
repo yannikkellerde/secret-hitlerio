@@ -273,7 +273,8 @@ module.exports.formattedGameList = () => {
 		isCustomGame: games[gameName].customGameSettings.enabled,
 		isUnlisted: games[gameName].general.unlistedGame || undefined,
 		avalonSH: games[gameName].general.avalonSH || undefined,
-		noTopdecking: games[gameName].general.noTopdecking || undefined
+		noTopdecking: games[gameName].general.noTopdecking || undefined,
+		allowBots: games[gameName].general.allowBots || undefined
 	}));
 };
 

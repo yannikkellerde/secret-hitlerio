@@ -190,7 +190,8 @@ module.exports.handleAddNewGame = async (socket, passport, data) => {
 			eloMinimum: data.eloSliderValue,
 			xpMinimum: data.xpSliderValue,
 			avalonSH: data.avalonSH ? { withPercival: Boolean(data.withPercival) } : null,
-			noTopdecking: data.noTopdecking
+			noTopdecking: data.noTopdecking,
+			allowBots: data.allowBots
 		},
 		customGameSettings: data.customGameSettings,
 		publicPlayersState: [],
