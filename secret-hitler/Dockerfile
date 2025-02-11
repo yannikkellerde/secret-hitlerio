@@ -12,7 +12,8 @@ ADD . / app/
 WORKDIR /app
 
 RUN yarn
-RUN yarn build
+# RUN yarn build
+RUN yarn global add webpack-dev-server@3.0.0
 
 ENTRYPOINT ["/usr/bin/env"]
 CMD [ "bash", "/app/on_start.bash" ]

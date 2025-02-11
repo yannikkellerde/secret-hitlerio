@@ -19,6 +19,27 @@ module.exports = {
 		path: path.resolve(__dirname, '../public/scripts')
 	},
 	devtool: 'inline-source-map',
+	cache: false,
+	devServer: {
+		contentBase: ['./src', './public'], // Old version uses `contentBase`
+		inline: true,
+		hot: true, // Enable Hot Module Replacement (HMR)
+		port: 3000,
+		host: '0.0.0.0', // Required for Docker compatibility
+		historyApiFallback: true, // Fix React Router issues (if needed)
+		watchContentBase: true, // Ensures static files are watched
+		watchOptions: {
+			poll: 1000, // Fix file watching issues inside Docker
+			ignored: /node_modules/,
+		},
+		headers: {
+			'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+			'Pragma': 'no-cache',
+			'Expires': '0'
+		},
+	clientLogLevel: 'info', // Log more info to the browser console
+
+	},
 	module: {
 		rules: [
 			{

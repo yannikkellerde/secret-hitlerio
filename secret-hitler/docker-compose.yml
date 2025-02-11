@@ -1,20 +1,51 @@
-version: "3.3"
+version: '3.9'
 services:
+  # Production service (no profile) 
+  # By default, `docker compose up` will run this (production).
   app:
-    image: app
     build:
-      dockerfile: Dockerfile
       context: .
+      dockerfile: Dockerfile
+    profiles: 
+    - prod  
     environment:
-      PORT: 8080
+      NODE_ENV: production
       MONGO_URL: "mongodb://database:27017/"
       REDIS_HOST: "localhost"
+      PORT: "8080"
+    # No command override here
+    # The container will run /app/on_start.bash, which sees NODE_ENV=production => yarn prod
     ports:
       - "8080:8080"
+    depends_on:
+      - database
+
   database:
     image: mongo:7.0.5
     container_name: database
-    restart: unless-stopped
     command: mongod
     ports:
       - "27017:27017"
+
+  # A second service that only runs if we enable the 'dev' profile
+  app_dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles: 
+      - dev        # Mark this service as part of the "dev" profile
+    environment:
+      NODE_ENV: development
+      MONGO_URL: "mongodb://database:27017/"
+      REDIS_HOST: "localhost"
+      PORT: "8080"
+    # Also no command override
+    # The same Docker image + same entry script => sees NODE_ENV=development => yarn dev
+    volumes:
+      - .:/app            # so code changes are live
+      - /app/node_modules # to avoid overwriting node_modules
+    ports:
+      - "8080:8080"
+      - "3000:3000"       # If yarn dev launches webpack-dev-server
+    depends_on:
+      - database
