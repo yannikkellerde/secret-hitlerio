@@ -16,12 +16,13 @@ module.exports = {
 	],
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, '../public/scripts')
+		path: path.resolve(__dirname, '../public/scripts'),
+		publicPath: '/'
 	},
 	devtool: 'inline-source-map',
 	cache: false,
 	devServer: {
-		contentBase: ['./src', './public'], // Old version uses `contentBase`
+		contentBase: ['./src', './public','./views'], // Old version uses `contentBase`
 		inline: true,
 		hot: true, // Enable Hot Module Replacement (HMR)
 		port: 3000,
