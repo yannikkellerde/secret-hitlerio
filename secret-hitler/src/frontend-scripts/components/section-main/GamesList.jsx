@@ -162,6 +162,7 @@ const GamesList = (props)=> {
 
 	const [queue, setQueue] = useState([])
 	const [inQueue, setInQueue] = useState(false)
+	const [removeFromQueueDisabled, setRemoveFromQueueDisabled] = useState(true)
 
 	useEffect(()=>{
 		props.socket.emit('getQueue', {dummy: "dummy"});
@@ -169,8 +170,14 @@ const GamesList = (props)=> {
 		props.socket.on("userStatusInQueue", (data)=>{
 			console.log("userStatusInQueue", data)
 			if(data.status){
-				if(data.action == "added") setInQueue(true)
-				if(data.action == "removed") setInQueue(false)
+				if(data.action == "added"){ 
+					setInQueue(true)
+					setTimeout(()=>{ setRemoveFromQueueDisabled(false) }, 2000)
+				}
+				if(data.action == "removed"){ 
+					setInQueue(false)
+					setRemoveFromQueueDisabled(true) 
+				}
 			}
 		})
 
@@ -218,7 +225,7 @@ const GamesList = (props)=> {
 								Add to Queue
 							</button>
 						):(
-							<button className="fluid ui button primary create-game-button" onClick={()=>{ updateUserStatesInQueue("remove") }}>
+							<button className="fluid ui button primary create-game-button" disabled={removeFromQueueDisabled} onClick={()=>{ updateUserStatesInQueue("remove") }}>
 								Remove from Queue
 							</button>
 						)
@@ -233,13 +240,22 @@ const GamesList = (props)=> {
 			
 			<div className="browser-body">
 				{renderSticky()}
-				<ol>
 				{
-					queue.map((row)=>{
-						return <li key={row['_id']}>{row.userName}</li>
-					})
+					queue.length>0 && (
+						<>
+						<h2>Players in waiting ...</h2>
+						<ol>
+						{
+							queue.map((row)=>{
+								return <li key={row['_id']}>{row.userName}</li>
+							})
+						}
+						</ol>
+						</>
+					)
 				}
-				</ol>
+				
+				
 			</div>
 		</section>
 		
