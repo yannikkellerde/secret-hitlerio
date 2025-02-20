@@ -1,5 +1,6 @@
 const Queue = require('../../../models/queue');
-const {handleAddNewGame} = require('../user-events');
+const Game = require('../../../models/game');
+// const {handleAddNewGame} = require('../user-events');
 
 /**
  * @param {object} socket - user socket reference.
@@ -67,8 +68,10 @@ const startANewGame = async (socket, passport) =>{
 
     // select 7 players
     const sevenPlayers = await Queue.find({}).limit(7)
+    let players = []
     // delete players from queue
     for (let player of sevenPlayers){
+        players.push({userName: player.userName})
         await Queue.deleteMany({userName: player.userName})
     }
     // create a new game 
@@ -102,8 +105,42 @@ const startANewGame = async (socket, passport) =>{
         allowBots: true
     }
     
-    await handleAddNewGame(socket, passport, gameDefaultSetup)
-    // assign players to the game
+    newGame = new Game({
+        "winningPlayers": [],
+        "losingPlayers": players,
+        "chats": [],
+        "hiddenInfoChat": [],
+        "uid": `defaultsetup-${Date.now()}`,
+        "name": `defaultsetup-${Date.now()}`,
+        "guesses": {},
+        "merlinGuesses": {},
+        "playerChats": "enabled",
+        "isVerifiedOnly": false,
+        "season": 22,
+        "rebalance6p": false,
+        "rebalance7p": false,
+        "rebalance9p2f": false,
+        "casualGame": false,
+        "practiceGame": false,
+        "customGame": false,
+        "unlistedGame": false,
+        "isRainbow": false,
+        "isTournyFirstRound": false,
+        "isTournySecondRound": false,
+        "timedMode": 0,
+        "blindMode": false,
+        "eloMinimum": null,
+        "noTopdecking": 0,
+        "completed": false,
+        "__v": 0
+    })
+
+    try {
+        await newGame.save()
+        console.log(`new game is created successfully.`)
+    } catch (error) {
+        console.log(`new game creation faild. error : `, error)
+    }
 
     // transfer players to the game
 }
