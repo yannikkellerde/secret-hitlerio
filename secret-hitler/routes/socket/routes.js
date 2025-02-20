@@ -65,7 +65,7 @@ const version = require('../../version');
 const https = require('https');
 const moment = require('moment');
 const { selectPlayerToAssassinate } = require('./game/assassination');
-const { handleAddToQueue } = require('./user-events/queue.js');
+const { handleAddToQueue, getQueue } = require('./user-events/queue.js');
 
 let modUserNames = [],
 	editorUserNames = [],
@@ -514,12 +514,24 @@ module.exports.socketRoutes = () => {
 					handleAddNewGame(socket, passport, data);
 				}
 			});
+
+
+			// queue routes
 			socket.on('addToQueue', data => {
 				if (isRestricted) return;
 				if (authenticated) {
 					handleAddToQueue(socket, passport, data);
 				}
 			});
+			socket.on('getQueue', data => {
+				if (isRestricted) return;
+				if (authenticated) {
+					getQueue(socket, passport, data);
+				}
+			});
+			// queue routes
+
+
 			socket.on('updateGameSettings', data => {
 				if (authenticated) {
 					handleUpdatedGameSettings(socket, passport, data);

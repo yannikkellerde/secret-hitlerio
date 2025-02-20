@@ -163,19 +163,27 @@ const GamesList = (props)=> {
 	const [queue, setQueue] = useState([])
 
 	useEffect(()=>{
+		props.socket.emit('getQueue', {dummy: "dummy"});
+
 		props.socket.on("userIsAddedToQueue", (data)=>{
-			console.log("user is added to queue")
-			console.log(data)
-			setQueue(["aaa", "bbb"])
+			console.log("user is added to queue", data)
+		})
+
+		props.socket.on("setQueue", (data)=>{
+			console.log("queue is updated from backend", data)
+			if( data.status == true){
+				setQueue(data.queue)
+			}else{
+				alert("Error in updating queue")
+				console.log(data)
+			}
 		})
 	}, [])
 
 	const addToQueue = () =>{
 		console.log("inside add to queue")
 		// console.log("props ", props)
-		props.socket.emit('addToQueue', {
-			test: "info test only"
-		});
+		props.socket.emit('addToQueue', {dummy: "dummy"});
 	}
 
 	return (
@@ -211,11 +219,13 @@ const GamesList = (props)=> {
 			
 			<div className="browser-body">
 				{renderSticky()}
+				<ol>
 				{
-					queue.map(row=>{
-						return <p>{row}</p>
+					queue.map((row)=>{
+						return <li key={row['_id']}>{row.userName}</li>
 					})
 				}
+				</ol>
 			</div>
 		</section>
 		
