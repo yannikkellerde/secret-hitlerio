@@ -1,4 +1,4 @@
-import React from 'react'; // eslint-disable-line
+import React, { useEffect, useState } from 'react'; // eslint-disable-line
 import DisplayLobbies from './DisplayLobbies.jsx';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'semantic-ui-react';
@@ -7,51 +7,42 @@ import { CURRENTSEASONNUMBER } from '../../constants';
 import { Message } from 'semantic-ui-react';
 import { processEmotes } from '../../emotes';
 
-export class GamesList extends React.Component {
-	state = {
+const GamesList = (props)=> {
+	const state = {
 		filtersVisible: false
 	};
 
-	toggleFilter = value => {
-		const { gameFilter, changeGameFilter } = this.props;
+	const toggleFilter = value => {
+		const { gameFilter, changeGameFilter } = props;
 
 		gameFilter[value] = !gameFilter[value];
 		changeGameFilter(gameFilter);
 	};
 
-	toggleNotify = () => {
-		const { notify, socket } = this.props;
+	const toggleNotify = () => {
+		const { notify, socket } = props;
 		socket.emit('updateGameSettings', {
 			notifyForNewLobby: !notify
 		});
 	};
 
-	componentWillReceiveProps(nextProps) {
-		const { generalChats } = this.props;
-		const nextGeneralChats = nextProps.generalChats;
-
-		if (!this.props.stickyEnabled && generalChats.sticky !== nextGeneralChats.sticky) {
-			this.props.setStickyEnabled(true);
-		}
-	}
-
-	renderSticky = () => {
-		if (this.props.stickyEnabled && this.props.generalChats && this.props.generalChats.sticky) {
+	const renderSticky = () => {
+		if (props.stickyEnabled && props.generalChats && props.generalChats.sticky) {
 			return (
 				<Message
 					onDismiss={() => {
-						this.props.setStickyEnabled(false);
+						props.setStickyEnabled(false);
 					}}
 					color="blue"
 				>
-					{processEmotes(this.props.generalChats.sticky, true, this.props.allEmotes)}
+					{processEmotes(props.generalChats.sticky, true, props.allEmotes)}
 				</Message>
 			);
 		}
 	};
 
-	renderFilters() {
-		const { gameFilter, notify } = this.props;
+	const renderFilters = () => {
+		const { gameFilter, notify } = props;
 
 		return (
 			<div className="browser-filters ui grid">
@@ -61,7 +52,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.pub}
 						onChange={() => {
-							this.toggleFilter('pub');
+							toggleFilter('pub');
 						}}
 					/>
 				</div>
@@ -71,7 +62,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.priv}
 						onChange={() => {
-							this.toggleFilter('priv');
+							toggleFilter('priv');
 						}}
 					/>
 				</div>
@@ -81,7 +72,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.unstarted}
 						onChange={() => {
-							this.toggleFilter('unstarted');
+							toggleFilter('unstarted');
 						}}
 					/>
 				</div>
@@ -91,7 +82,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.inprogress}
 						onChange={() => {
-							this.toggleFilter('inprogress');
+							toggleFilter('inprogress');
 						}}
 					/>
 				</div>
@@ -101,7 +92,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.completed}
 						onChange={() => {
-							this.toggleFilter('completed');
+							toggleFilter('completed');
 						}}
 					/>
 				</div>
@@ -111,7 +102,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.casualgame}
 						onChange={() => {
-							this.toggleFilter('casualgame');
+							toggleFilter('casualgame');
 						}}
 					/>
 				</div>
@@ -121,7 +112,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.customgame}
 						onChange={() => {
-							this.toggleFilter('customgame');
+							toggleFilter('customgame');
 						}}
 					/>
 				</div>
@@ -131,7 +122,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.timedMode}
 						onChange={() => {
-							this.toggleFilter('timedMode');
+							toggleFilter('timedMode');
 						}}
 					/>
 				</div>
@@ -141,7 +132,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.standard}
 						onChange={() => {
-							this.toggleFilter('standard');
+							toggleFilter('standard');
 						}}
 					/>
 				</div>
@@ -151,7 +142,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={!gameFilter.rainbow}
 						onChange={() => {
-							this.toggleFilter('rainbow');
+							toggleFilter('rainbow');
 						}}
 					/>
 				</div>
@@ -161,7 +152,7 @@ export class GamesList extends React.Component {
 						toggle
 						checked={notify}
 						onChange={() => {
-							this.toggleNotify();
+							toggleNotify();
 						}}
 					/>
 				</div>
@@ -169,127 +160,66 @@ export class GamesList extends React.Component {
 		);
 	}
 
-	renderGameList() {
-		const { gameList, userInfo, userList } = this.props;
+	const [queue, setQueue] = useState([])
 
-		const compareGames = (a, b) => {
-			if (a.seatedCount !== b.seatedCount) return b.seatedCount - a.seatedCount;
-			const aName = a.name.toLowerCase();
-			const bName = b.name.toLowerCase();
-			if (aName === bName) {
-				return a.uid < b.uid ? 1 : -1;
-			} else {
-				return aName > bName ? 1 : -1;
-			}
-		};
+	useEffect(()=>{
+		props.socket.on("userIsAddedToQueue", (data)=>{
+			console.log("user is added to queue")
+			console.log(data)
+			setQueue(["aaa", "bbb"])
+		})
+	}, [])
 
-		const thisUser = userInfo.userName && userList.list && userList.list.find(u => u.userName == userInfo.userName);
-		const sortTypeThenName = (a, b) => {
-			const isRainbow = thisUser && !thisUser.isPrivate && thisUser.isRainbowOverall;
-			const isPrivate = thisUser && thisUser.isPrivate;
+	const addToQueue = () =>{
+		console.log("inside add to queue")
+		// console.log("props ", props)
+		props.socket.emit('addToQueue', {
+			test: "info test only"
+		});
+	}
 
-			let aType;
-			if (a.private) aType = 'private';
-			else if (a.rainbowgame) aType = 'rainbow';
-			else aType = 'regular';
+	return (
+		<section className={state.filtersVisible ? 'browser-container' : 'browser-container filters-hidden'}>
+			<a href="#/changelog">
+				<h5 title="A season is an optional new tier of elo that is reset every 3 months.">
+					{new Date() > new Date('2023-04-23')
+						? `Season ends ${moment(new Date('2024-01-05T06:00:00.000Z')).fromNow()}.`
+						: `Welcome to season ${CURRENTSEASONNUMBER}!`}
+				</h5>
+			</a>
+			<h3>Game filters</h3>
+			{renderFilters()}
+			<div className="browser-header">
+				{(() => {
+					const { userName } = props.userInfo;
+					const gameBeingCreated = props.midSection === 'createGame';
 
-			let bType;
-			if (b.private) bType = 'private';
-			else if (b.rainbowgame) bType = 'rainbow';
-			else bType = 'regular';
-
-			let sortOrder;
-			if (isRainbow || !thisUser) sortOrder = ['rainbow', 'regular', 'private'];
-			else if (isPrivate) sortOrder = ['private', 'rainbow', 'regular'];
-			else sortOrder = ['regular', 'rainbow', 'private'];
-
-			const diff = sortOrder.indexOf(aType) - sortOrder.indexOf(bType);
-			return diff || compareGames(a, b);
-		};
-
-		if (gameList.length) {
-			return gameList
-				.filter(game => {
-					const { pub, priv, unstarted, inprogress, completed, timedMode, rainbow, standard, customgame, casualgame } = this.props.gameFilter;
-
-					return !(
-						(game.private && priv) ||
-						(!game.private && pub) ||
-						(game.rainbowgame && rainbow) ||
-						(!game.rainbowgame && standard) ||
-						(game.timedMode && timedMode) ||
-						(game.gameStatus === 'notStarted' && unstarted) ||
-						(game.gameStatus === 'isStarted' && inprogress) ||
-						((game.gameStatus === 'fascist' || game.gameStatus === 'liberal') && completed) ||
-						(game.isCustomGame && customgame) ||
-						(game.casualGame && casualgame)
+					return userName && !gameBeingCreated ? (
+						// <a className="fluid ui button primary create-game-button" href="#/creategame">
+						// 	Create a new game
+						// </a>
+						<button className="fluid ui button primary create-game-button" onClick={addToQueue}>
+							Add to queue
+						</button>
+					) : (
+						<span className="disabled-create-game-button">
+							<button className="fluid ui button primary disabled">{gameBeingCreated ? 'Creating a new game..' : 'Log in to join games'}</button>
+						</span>
 					);
-				})
-				.sort((a, b) => {
-					const userInGame =
-						userInfo && userInfo.userName && a.userNames && a.userNames.includes(userInfo.userName)
-							? -1
-							: userInfo && userInfo.userName && b.userNames && b.userNames.includes(userInfo.userName)
-							? 1
-							: 0;
-
-					const statusSortOrder = ['notStarted', 'isStarted', 'fascist', 'liberal'];
-					const diff = Math.min(2, statusSortOrder.indexOf(a.gameStatus)) - Math.min(2, statusSortOrder.indexOf(b.gameStatus));
-					return userInGame || diff || sortTypeThenName(a, b);
-				})
-				.map((game, index) => (
-					<DisplayLobbies key={game.uid} game={game} socket={this.props.socket} userList={this.props.userList} userInfo={this.props.userInfo} />
-				));
-		}
-	}
-
-	render() {
-		const toggleFilter = () => {
-			this.setState(state => ({
-				filtersVisible: !state.filtersVisible
-			}));
-		};
-
-		return (
-			<section className={this.state.filtersVisible ? 'browser-container' : 'browser-container filters-hidden'}>
-				<a href="#/changelog">
-					<h5 title="A season is an optional new tier of elo that is reset every 3 months.">
-						{new Date() > new Date('2023-04-23')
-							? `Season ends ${moment(new Date('2024-01-05T06:00:00.000Z')).fromNow()}.`
-							: `Welcome to season ${CURRENTSEASONNUMBER}!`}
-					</h5>
-				</a>
-				<h3>Game filters</h3>
-				{this.renderFilters()}
-				<div className="browser-header">
-					{(() => {
-						const { userName } = this.props.userInfo;
-						const gameBeingCreated = this.props.midSection === 'createGame';
-
-						return userName && !gameBeingCreated ? (
-							<a className="fluid ui button primary create-game-button" href="#/creategame">
-								Create a new game
-							</a>
-						) : (
-							<span className="disabled-create-game-button">
-								<button className="fluid ui button primary disabled">{gameBeingCreated ? 'Creating a new game..' : 'Log in to make games'}</button>
-							</span>
-						);
-					})()}
-					<span className={this.state.filtersVisible ? 'enabled' : 'disabled'} onClick={toggleFilter}>
-						<i className="large filter icon" title="Game filters" />
-					</span>
-				</div>
-				<a href="#/leaderboards" className="leaderboard">
-					Leaderboards
-				</a>
-				<div className="browser-body">
-					{this.renderSticky()}
-					{this.renderGameList()}
-				</div>
-			</section>
-		);
-	}
+				})()}
+			</div>
+			
+			<div className="browser-body">
+				{renderSticky()}
+				{
+					queue.map(row=>{
+						return <p>{row}</p>
+					})
+				}
+			</div>
+		</section>
+		
+	)
 }
 
 GamesList.defaultProps = {
