@@ -27,7 +27,8 @@ const {
 	handleOpenChat,
 	handleCloseChat,
 	handleUnsubscribeChat,
-	handleAddNewModDMChat
+	handleAddNewModDMChat,
+	addToQueue
 } = require('./user-events');
 const { handleAEMMessages } = require('./util');
 const {
@@ -64,6 +65,7 @@ const version = require('../../version');
 const https = require('https');
 const moment = require('moment');
 const { selectPlayerToAssassinate } = require('./game/assassination');
+const { handleAddToQueue } = require('./user-events/queue.js');
 
 let modUserNames = [],
 	editorUserNames = [],
@@ -510,6 +512,12 @@ module.exports.socketRoutes = () => {
 				if (isRestricted) return;
 				if (authenticated) {
 					handleAddNewGame(socket, passport, data);
+				}
+			});
+			socket.on('addToQueue', data => {
+				if (isRestricted) return;
+				if (authenticated) {
+					handleAddToQueue(socket, passport, data);
 				}
 			});
 			socket.on('updateGameSettings', data => {

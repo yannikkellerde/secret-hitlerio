@@ -14,6 +14,8 @@ const remakeGame = require('./user-events/remake-game');
 const settings = require('./user-events/settings');
 const util = require('./user-events/util');
 
+const addToQueue = require('./user-events/queue');
+
 module.exports = Object.assign(
 	{},
 	chat,
@@ -29,7 +31,8 @@ module.exports = Object.assign(
 	playerReports,
 	remakeGame,
 	settings,
-	util
+	util,
+	addToQueue
 );
 
 const crashReport = JSON.stringify({
