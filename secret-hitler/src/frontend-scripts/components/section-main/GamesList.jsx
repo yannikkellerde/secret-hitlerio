@@ -161,12 +161,17 @@ const GamesList = (props)=> {
 	}
 
 	const [queue, setQueue] = useState([])
+	const [inQueue, setInQueue] = useState(false)
 
 	useEffect(()=>{
 		props.socket.emit('getQueue', {dummy: "dummy"});
 
-		props.socket.on("userIsAddedToQueue", (data)=>{
-			console.log("user is added to queue", data)
+		props.socket.on("userStatusInQueue", (data)=>{
+			console.log("userStatusInQueue", data)
+			if(data.status){
+				if(data.action == "added") setInQueue(true)
+				if(data.action == "removed") setInQueue(false)
+			}
 		})
 
 		props.socket.on("setQueue", (data)=>{
@@ -180,10 +185,14 @@ const GamesList = (props)=> {
 		})
 	}, [])
 
-	const addToQueue = () =>{
-		console.log("inside add to queue")
+	const updateUserStatesInQueue = (status) =>{
+		console.log("inside addToQueue")
 		// console.log("props ", props)
-		props.socket.emit('addToQueue', {dummy: "dummy"});
+		if ( status=='add' ){
+			props.socket.emit('addToQueue', {dummy: "dummy"});
+		}else{
+			props.socket.emit('removeFromQueue', {dummy: "dummy"});
+		}
 	}
 
 	return (
@@ -202,13 +211,18 @@ const GamesList = (props)=> {
 					const { userName } = props.userInfo;
 					const gameBeingCreated = props.midSection === 'createGame';
 
-					return userName && !gameBeingCreated ? (
-						// <a className="fluid ui button primary create-game-button" href="#/creategame">
-						// 	Create a new game
-						// </a>
-						<button className="fluid ui button primary create-game-button" onClick={addToQueue}>
-							Add to queue
-						</button>
+					return userName ? (
+						
+						!inQueue ? (
+							<button className="fluid ui button primary create-game-button" onClick={()=>{ updateUserStatesInQueue("add") }}>
+								Add to Queue
+							</button>
+						):(
+							<button className="fluid ui button primary create-game-button" onClick={()=>{ updateUserStatesInQueue("remove") }}>
+								Remove from Queue
+							</button>
+						)
+						
 					) : (
 						<span className="disabled-create-game-button">
 							<button className="fluid ui button primary disabled">{gameBeingCreated ? 'Creating a new game..' : 'Log in to join games'}</button>
