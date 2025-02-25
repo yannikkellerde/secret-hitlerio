@@ -43,7 +43,7 @@ module.exports.handleAddNewGame = async (socket, passport, data) => {
 	for (a = playerCounts[0]; a <= playerCounts[playerCounts.length - 1]; a++) {
 		if (!playerCounts.includes(a)) excludes.push(a);
 	}
-
+	
 	if (!data.gameName || data.gameName.length > 20 || !LEGALCHARACTERS(data.gameName)) {
 		// Should be enforced on the client. Copy-pasting characters can get past the LEGALCHARACTERS client check.
 		return;

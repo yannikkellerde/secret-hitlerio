@@ -190,7 +190,21 @@ const GamesList = (props)=> {
 				console.log(data)
 			}
 		})
+
+		props.socket.on("goToGame", (data)=>{
+			console.log("goToGame data", data)
+			alert("Go to game is called from backend " + data.gameId)
+			window.location.href = `#/table/${data.gameId}`;
+		})
 	}, [])
+
+	useEffect(()=>{
+		if (inQueue){
+			setInterval(()=>{
+				props.socket.emit('isGameIdSet', {dummy: "dummy"});
+			}, 1000)
+		}
+	}, [inQueue])
 
 	const updateUserStatesInQueue = (status) =>{
 		console.log("inside addToQueue")

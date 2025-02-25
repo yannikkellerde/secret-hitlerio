@@ -10,7 +10,8 @@ const { userInBlacklist } = require('../../../utils');
  * @param {object} passport - socket authentication.
  * @param {object} data - from socket emit.
  */
-const updateSeatedUser = (socket, passport, data) => {
+const updateSeatedUser = (io, socketId, passport, data, gameId) => {
+	console.log("in updateSeatedUser", socketId)
 	// Authentication Assured in routes.js
 	// In-game Assured in routes.js
 	const game = games[data.uid];
@@ -19,15 +20,18 @@ const updateSeatedUser = (socket, passport, data) => {
 	if (!game || !game.gameState || game.gameState.isTracksFlipped) {
 		return; // Game already started
 	}
+	console.log("here 1")
 
 	const isBlacklistSafe = !game.private.gameCreatorBlacklist || !userInBlacklist(passport.user, game.private.gameCreatorBlacklist); // we can check blacklist before hitting mongo
 
 	if (!isBlacklistSafe) {
-		socket.emit('gameJoinStatusUpdate', {
+		io.to(socketId).socket.emit('gameJoinStatusUpdate', {
 			status: 'blacklisted'
 		});
 		return;
 	}
+	console.log("here 2")
+
 
 	Account.findOne({ username: passport.user }).then(account => {
 		const isNotMaxedOut = game.publicPlayersState.length < game.general.maxPlayersCount;
@@ -42,8 +46,11 @@ const updateSeatedUser = (socket, passport, data) => {
 		if (account.wins + account.losses < 3 && limitNewPlayers.status && !game.general.private) {
 			return;
 		}
+		console.log("here 3")
 
 		if (isNotMaxedOut && isNotInGame && isRainbowSafe && isPrivateSafe && isBlacklistSafe && isMeetingEloMinimum && isMeetingXPMinimum) {
+			console.log("here 4")
+			
 			const { publicPlayersState } = game;
 			const player = {
 				userName: passport.user,
@@ -91,7 +98,9 @@ const updateSeatedUser = (socket, passport, data) => {
 				publicPlayersState.unshift(player);
 			}
 
-			socket.emit('updateSeatForUser', true);
+			// socket.emit('updateSeatForUser', true);
+			console.log("here 5")
+			io.to(socketId).socket.emit("goToGame", {gameId})
 			checkStartConditions(game);
 			updateUserStatus(passport, game);
 			sendCommandChatsUpdate(game);

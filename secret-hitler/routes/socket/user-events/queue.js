@@ -1,26 +1,28 @@
 const Queue = require('../../../models/queue');
 const Game = require('../../../models/game');
-// const {handleAddNewGame} = require('../user-events');
-
+const {handleAddNewGame} = require('../user-events/create-game');
+const {updateSeatedUser} = require('../user-events/join-game');
 /**
  * @param {object} socket - user socket reference.
  * @param {object} passport - socket authentication.
  * @param {object} data - from socket emit.
  */
-const handleAddToQueue = async (socket, passport, data) => {
+const handleAddToQueue = async (socket, passport, data, io) => {
     try {
         const isUserInTheQueue = await Queue.find({userName: passport.user})
         if (isUserInTheQueue.length>0) return 
 
         const newUserInQueue = new Queue({
-            userName: passport.user
+            userName: passport.user,
+            socketId: socket.id,
+            gameId: null
         });
         await newUserInQueue.save();
         
         await socket.emit("userStatusInQueue", {status: true, action: "added"})
         await getQueue(socket, passport, data)
 
-        await checkIfThereAreSevenPlayers(socket, passport)
+        await checkIfThereAreSevenPlayers(socket, passport, io)
     } catch (error) {
         await socket.emit("userIsAddedToQueue", {status: false, message: error})
     }
@@ -54,29 +56,37 @@ const getQueue = async (socket, passport, data) => {
 
 }
 
-const checkIfThereAreSevenPlayers = async (socket, passport) => {
+const checkIfThereAreSevenPlayers = async (socket, passport, io) => {
     console.log("inside checkIfThereAreSevenPlayers")
-    const userInQueue = await Queue.find({})
+    const userInQueue = await Queue.find({gmaeId: null})
     if (userInQueue.length>=7){
         console.log('checkIfThereAreSevenPlayers : there are 7 players we can start a new game.')
-        await startANewGame(socket, passport)
+        // this socket and passport is for the latest user joint (socket, passport)
+        await startANewGame(socket, passport, io)
     }
 }
 
-const startANewGame = async (socket, passport) =>{
+const startANewGame = async (socket, passport, io) =>{
     console.log("inside startANewGame")
+    
+    const gameNameId = `game_${Date.now()}`;
 
     // select 7 players
-    const sevenPlayers = await Queue.find({}).limit(7)
-    let players = []
+    const sevenPlayers = await Queue.find({gameId: null}).limit(7)
+    
     // delete players from queue
     for (let player of sevenPlayers){
-        players.push({userName: player.userName})
-        await Queue.deleteMany({userName: player.userName})
+        if ( player.userName == passport.user ) {
+            await Queue.deleteMany({userName: player.userName})
+
+        }else{
+            player.gameId = gameNameId
+            await player.save()
+        }
     }
     // create a new game 
-    const gameDefaultSetup = {
-        gameName: `defaultsetup-${Date.now()}`,
+    var gameDefaultSetup = {
+        gameName: gameNameId,
         gameType: 'ranked',
         flag: 'none',
         minPlayersCount: 7,
@@ -105,48 +115,21 @@ const startANewGame = async (socket, passport) =>{
         allowBots: true
     }
     
-    newGame = new Game({
-        "winningPlayers": [],
-        "losingPlayers": players,
-        "chats": [],
-        "hiddenInfoChat": [],
-        "uid": `defaultsetup-${Date.now()}`,
-        "name": `defaultsetup-${Date.now()}`,
-        "guesses": {},
-        "merlinGuesses": {},
-        "playerChats": "enabled",
-        "isVerifiedOnly": false,
-        "season": 22,
-        "rebalance6p": false,
-        "rebalance7p": false,
-        "rebalance9p2f": false,
-        "casualGame": false,
-        "practiceGame": false,
-        "customGame": false,
-        "unlistedGame": false,
-        "isRainbow": false,
-        "isTournyFirstRound": false,
-        "isTournySecondRound": false,
-        "timedMode": 0,
-        "blindMode": false,
-        "eloMinimum": null,
-        "noTopdecking": 0,
-        "completed": false,
-        "__v": 0
-    })
-
-    try {
-        await newGame.save()
-        console.log(`new game is created successfully.`)
-    } catch (error) {
-        console.log(`new game creation faild. error : `, error)
+    await handleAddNewGame(socket, passport, gameDefaultSetup)
+}
+const isGameIdSet = async (socket, passport, data)=>{
+    console.log("isGameIdSet is called")
+    
+    const userDocument = await Queue.find({userName: passport.user})
+    if ( userDocument[0].gameId ){
+        await socket.emit("goToGame", {status: true, action: userDocument[0].gameId})
+        await Queue.deleteMany({userName: userDocument[0].userName})
     }
-
-    // transfer players to the game
 }
 
 module.exports = {
     handleAddToQueue,
     getQueue,
-    handleRemoveFromQueue
+    handleRemoveFromQueue,
+    isGameIdSet
 };

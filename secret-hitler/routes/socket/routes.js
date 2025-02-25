@@ -65,7 +65,7 @@ const version = require('../../version');
 const https = require('https');
 const moment = require('moment');
 const { selectPlayerToAssassinate } = require('./game/assassination');
-const { handleAddToQueue, getQueue, handleRemoveFromQueue } = require('./user-events/queue.js');
+const { handleAddToQueue, getQueue, handleRemoveFromQueue, isGameIdSet } = require('./user-events/queue.js');
 
 let modUserNames = [],
 	editorUserNames = [],
@@ -520,7 +520,7 @@ module.exports.socketRoutes = () => {
 			socket.on('addToQueue', data => {
 				if (isRestricted) return;
 				if (authenticated) {
-					handleAddToQueue(socket, passport, data);
+					handleAddToQueue(socket, passport, data, io);
 				}
 			});
 			socket.on('removeFromQueue', data => {
@@ -533,6 +533,12 @@ module.exports.socketRoutes = () => {
 				if (isRestricted) return;
 				if (authenticated) {
 					getQueue(socket, passport, data);
+				}
+			});
+			socket.on('isGameIdSet', data => {
+				if (isRestricted) return;
+				if (authenticated) {
+					isGameIdSet(socket, passport, data);
 				}
 			});
 			// queue routes
