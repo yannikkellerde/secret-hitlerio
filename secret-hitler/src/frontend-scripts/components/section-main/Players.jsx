@@ -45,6 +45,8 @@ class Players extends React.Component {
 				$(this.blacklistModal).modal('show');
 			}
 		});
+
+		this.clickedTakeSeat()
 	}
 
 	componentWillUnmount() {
@@ -451,13 +453,15 @@ class Players extends React.Component {
 			(!userInfo.userName || !gameInfo.publicPlayersState.find(player => player.userName === userInfo.userName))
 		) {
 			return gameInfo.general.isTourny ? (
-				<div className="ui left pointing label tourny" onClick={this.clickedTakeSeat}>
-					Queue for tournament
-				</div>
+				<></>
+				// <div className="ui left pointing label tourny" onClick={this.clickedTakeSeat}>
+				// 	Queue for tournament
+				// </div>
 			) : (
-				<div className="ui right pointing label" onClick={this.clickedTakeSeat}>
-					Take a seat
-				</div>
+				<></>
+				// <div className="ui right pointing label" onClick={this.clickedTakeSeat}>
+				// 	Take a seat
+				// </div>
 			);
 		}
 	}
