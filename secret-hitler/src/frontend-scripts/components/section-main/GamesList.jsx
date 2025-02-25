@@ -12,6 +12,8 @@ const GamesList = (props)=> {
 		filtersVisible: false
 	};
 
+	const [isMounted, setIsMounted] = useState(false)
+
 	const toggleFilter = value => {
 		const { gameFilter, changeGameFilter } = props;
 
@@ -165,13 +167,13 @@ const GamesList = (props)=> {
 	const [removeFromQueueDisabled, setRemoveFromQueueDisabled] = useState(true)
 
 	useEffect(()=>{
-		props.socket.emit('getQueue', {dummy: "dummy"});
 
 		props.socket.on("userStatusInQueue", (data)=>{
 			console.log("userStatusInQueue", data)
 			if(data.status){
 				if(data.action == "added"){ 
 					setInQueue(true)
+					setIsMounted(true)
 					setTimeout(()=>{ setRemoveFromQueueDisabled(false) }, 2000)
 				}
 				if(data.action == "removed"){ 
@@ -183,8 +185,10 @@ const GamesList = (props)=> {
 
 		props.socket.on("setQueue", (data)=>{
 			console.log("queue is updated from backend", data)
-			if( data.status == true){
-				setQueue(data.queue)
+			if( data.status == true ){
+				if (isMounted){
+					setQueue(data.queue)
+				}
 			}else{
 				alert("Error in updating queue")
 				console.log(data)
@@ -196,7 +200,26 @@ const GamesList = (props)=> {
 			alert("Go to game is called from backend " + data.gameId)
 			window.location.href = `#/table/${data.gameId}`;
 		})
-	}, [])
+
+		setInterval(()=>{
+			props.socket.emit('getQueue', {dummy: "dummy"});
+		}, 1000)
+
+
+		return ()=>{
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			console.log("------")
+			setIsMounted(false)
+		}
+		
+	}, [isMounted])
 
 	useEffect(()=>{
 		if (inQueue){

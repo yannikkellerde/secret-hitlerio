@@ -536,6 +536,7 @@ module.exports.socketRoutes = () => {
 				}
 			});
 			socket.on('isGameIdSet', data => {
+				
 				if (isRestricted) return;
 				if (authenticated) {
 					isGameIdSet(socket, passport, data);

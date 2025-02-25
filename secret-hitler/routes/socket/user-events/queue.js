@@ -1,7 +1,7 @@
 const Queue = require('../../../models/queue');
 const Game = require('../../../models/game');
 const {handleAddNewGame} = require('../user-events/create-game');
-const {updateSeatedUser} = require('../user-events/join-game');
+
 /**
  * @param {object} socket - user socket reference.
  * @param {object} passport - socket authentication.
@@ -74,16 +74,6 @@ const startANewGame = async (socket, passport, io) =>{
     // select 7 players
     const sevenPlayers = await Queue.find({gameId: null}).limit(7)
     
-    // delete players from queue
-    for (let player of sevenPlayers){
-        if ( player.userName == passport.user ) {
-            await Queue.deleteMany({userName: player.userName})
-
-        }else{
-            player.gameId = gameNameId
-            await player.save()
-        }
-    }
     // create a new game 
     var gameDefaultSetup = {
         gameName: gameNameId,
@@ -115,15 +105,28 @@ const startANewGame = async (socket, passport, io) =>{
         allowBots: true
     }
     
-    await handleAddNewGame(socket, passport, gameDefaultSetup)
+    const game_uid = await handleAddNewGame(socket, passport, gameDefaultSetup)
+
+    // delete players from queue
+    for (let player of sevenPlayers){
+        if ( player.userName == passport.user ) {
+            await Queue.deleteMany({userName: player.userName})
+
+        }else{
+            player.gameId = game_uid
+            await player.save()
+        }
+    }
 }
 const isGameIdSet = async (socket, passport, data)=>{
     console.log("isGameIdSet is called")
     
     const userDocument = await Queue.find({userName: passport.user})
-    if ( userDocument[0].gameId ){
-        await socket.emit("goToGame", {status: true, action: userDocument[0].gameId})
-        await Queue.deleteMany({userName: userDocument[0].userName})
+    if (userDocument.length > 0){
+        if ( userDocument[0].gameId ){
+            await socket.emit("goToGame", {status: true, gameId: userDocument[0].gameId})
+            await Queue.deleteMany({userName: userDocument[0].userName})
+        }
     }
 }
 

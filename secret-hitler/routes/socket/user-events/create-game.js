@@ -372,6 +372,8 @@ module.exports.handleAddNewGame = async (socket, passport, data) => {
 		socket.emit('gameUpdate', cloneNewGame);
 		socket.emit('joinGameRedirect', newGame.general.uid);
 	});
+
+	return uid
 };
 
 /**

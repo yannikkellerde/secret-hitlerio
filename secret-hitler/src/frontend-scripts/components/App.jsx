@@ -28,7 +28,7 @@ class TopLevelErrorBoundary extends React.Component {
 		super(props);
 		this.state = {
 			error: null,
-			errorInfo: null
+			errorInfo: null,
 		};
 	}
 
@@ -338,6 +338,12 @@ export class App extends React.Component {
 			if (hash === '#/') {
 				this.handleLeaveGame();
 			} else if (!gameInfo.gameState.isCompleted) {
+				const fetchedUrl = window.location.href
+				const url_splited = fetchedUrl.split("/")
+				const fetchedUrlUid = url_splited[url_splited.length - 1]
+
+				gameInfo.general.uid = fetchedUrlUid
+
 				if (this.prevHash !== '#/table/' + gameInfo.general.uid) {
 					// Force player to rejoin the game if it's not finished and they are still seated
 					socket.emit('getGameInfo', gameInfo.general.uid);
@@ -419,10 +425,17 @@ export class App extends React.Component {
 
 	handleSeatingUser(password) {
 		const { gameInfo } = this.props;
+
+		const fetchedUrl = window.location.href
+		const url_splited = fetchedUrl.split("/")
+		const fetchedUrlUid = url_splited[url_splited.length - 1]
+
 		const data = {
-			uid: gameInfo.general.uid,
-			password
+			uid: fetchedUrlUid,
+			password,
 		};
+
+		console.log("updateSeatedUser data" , data)
 
 		socket.emit('updateSeatedUser', data);
 	}
