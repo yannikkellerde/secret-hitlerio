@@ -1,412 +1,314 @@
 extends layout
 block content
-	.ui.container.about-container
-		.ui.text.container
-			h1.ui.header.centered Terms Of Use
-		.ui.text.container
-			h2
-				strong General
-			p The site is provided free of charge to everyone, and is subject to the occasional failure that is out of our control. Sometimes you may lose on a sure win due to technical issues. In these situations, just like in general, elo refund is sadly not possible.
-			p Breaking any of the rules listed below is subject to warnings and moderative action against your account (regardless of if you were reported), and in extreme cases we may revoke your access to this site.
-			p Most violations will be addressed with a Warning &gt; Timeout &gt; Ban protocol, unless otherwise stated. Multiple warnings and timeouts may be issued to one player based on their offense and their history.
-			p Any malicious activity (e.g., trying to crash the site) or attempts to intentionally subvert rules using gaps in rulings or loopholes will be considered breaking the rules.
-			p Any usage of bots that automate actions or chats is not allowed unless approved by an Admin.
-			p To request mod assistance you may ping @Moderator in the #mod-support channel of our Discord server. While seated in game, you may also ping @mod followed by a space and the message (e.g., @mod 6 is afk), or you may report a player directly by clicking their username and then clicking the Report button and filling out the report modal.
-			br
-			h2
-				strong Language and Behavior
-			p These rules apply to all types of lobbies and chats except for private games and unlisted games, unless the link is shared publicly.
-			p These rules also apply to game room names, even if the room is private. Forbidden room names will be reset and appropriate action will be taken.
-			p Anything not listed below is probably fine to use, provided there is no malicious intent or spam.
-			h4
-				strong Forbidden Language:
-			li Hate speech
-				<ul style="margin-top: 0px; margin-bottom: 0px; margin-left: -15px; list-style-type:circle">
-					li Anything racist, sexist, homophobic, transphobic, anti-specific-religion, or anti-atheism.
-					li Anything ableist or derogatory to people with disabilities, when excessively insulting a player.
-				</ul>
-			li Excessive sexual content.
-			li Posting links to anything harmful or NSFW.
-			li Encouraging/glorifying harm or self-harm of others, including malicious, directed use of "die", "kys", etc. If you or someone you know is at risk of self-harm, #[a(href="https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines") please seek help from a professional or the authorities.]
-			h4
-				strong Explicitly Forbidden Words:
-			p You can see the <em>uncensored</em> word by clicking "Click to see"
-			li N word -- likely ban on sight
-			li F slur -- likely timeout on sight --
-				a(class="revealer" onclick="toggle('fword')")  Click to see ->
-				p(class="hide" id="fword" style="display: none") faggot
-			li R word --
-				a(class="revealer" onclick="toggle('rword')")  Click to see ->
-				p(class="hide" id="rword" style="display: none")  retard
-			li Words that are equivalent to those listed above --
-				a(class="revealer" onclick="toggle('example')")  Click to see ->
-				p(class="hide" id="example" style="display: none") (e.g., &quot;libtard&quot; for &quot;retard&quot;).
-			h4
-				strong Forbidden behavior:
-			li Spamming - sending the same or similar messages repetitively such that it prevents or hinders discussion (including copypastas).
-			li Harassing or excessively attacking others.
-			li Discussions in non-English, except for brief instances if there is no conflict with any other rule.
-			li Engaging in excessive and unnecessary drama or unwarranted attention seeking/self-pity posts.
-			li Impersonating a player -- impersonating a moderator will be treated more harshly.
-			li Abuse of moderator ping and player report functions.
-			li Unauthorized advertising.
-			li Spoiling any recent films, TV shows, or similar -- 18hr if maliciously spoiling popular, current entertainment.
-			li Doxxing/exposing someone's personal information -- likely ban on sight if extreme.
-			br
-			h2
-				strong Accounts and Cardbacks
-			p Account names strictly follow Language and Behavior rules. Additionally, account names must not be too similar to other unique usernames without that user&apos;s permission. Any account found breaking these rules will be permanently toggled private. Private accounts are not subject to moderation, but can only play in private games.
-			p
-				strong Card-backs follow Language and Behavior rules, and additionally must not contain:
-			li Images from the site that can appear over the card-back or similar enough to cause confusion.
-			li Anything that the viewer may not wish to be seen looking at in a public or formal environment, anything that can be considered NSFW or potentially disturbing content.
-			li Swastikas, SS, Nazi salutes.
-			li Nazi imagery/portraits (with exception to obvious parody).
-			br
-			p Card-backs breaking these rules will be removed and violating users will be warned. Animated card-backs will be converted to a static image.
-			br
-			h2
-				strong AFK (Away-From-Keyboard)
-			p These rules apply only to ranked, practice, casual, and custom games.
-			p AFK players are given 3 minutes to return and continue playing before they are in violation of our ToU. Any room waiting on an AFK player is asked to report the player to moderators and wait those 3 minutes before remaking/leaving. The AFK player is still encouraged to return if the lobby is still active, even if the 3 minutes passed, in which case the AFK will be excused.
-			p AFK penalties increase based on the number of AFKs a player has within the 24 hour period following their last valid AFK; if more than 24 hours pass, the chain is reset. The penalties are listed below:
-			li 1st AFK - No punishment
-			li 2nd AFK - 6 hour timeout
-			li 3rd AFK - 18 hour timeout
-			li 4th AFK - Ban
-			br
-			p Any player found to be AFK&apos;ing too frequently, but not being banned by the procedure, may still end up banned.
-			<p style="margin-bottom: 4px"> In some cases, a player is allowed to leave an active game without punishment. Aside from leaving due to IRL emergencies, a player may leave <span class="emphasis">before the first election is voted on</span> if...</p>
-				li they don&apos;t have time to play,
-				li they don&apos;t want to play the selected mode (meta is not a game mode),
-				li there is a seated player they have blacklisted.
-			</p>
-			p For any emergency situations, a player&apos;s leave may be excused if <span class="emphasis">they inform a mod before their next game and within a reasonable timeframe.</span>
-			h4
-				strong Ragequits
-			p Any player ragequitting (RQ), loss dodging, or refusing to play will receive an 18 hour timeout, at the very least, in addition to advancement of their AFK chain.
-			br
-			h2
-				strong Gameplay
-			p These rules are mostly intended for ranked games. Practice games also follow these rules, but penalties tend to be more forgiving. However multi-accounting in Casual or Custom games without explicitly notifying the other players in the lobby will not be permitted.
-			h4
-				strong The following is not permitted:
-			li Intentionally playing to lose (gamethrowing).
-			li Intentional suboptimal play (e.g., spite-playing, outing lines without intention to lose), unless non-maliciously in a practice game.
-			li Stalling when the majority of players are decided on a play and are asking to move on.
-			li Playing voice chat games if not every player is in the voice chat, unless &quot;voice chat&quot; is explicitly labeled in the room name.
-			li Use of a non-English language, unless explicitly stated in the game room name
-			li Cheating
-				<ul style="margin-top: 0px; margin-bottom: 5px; margin-left: -15px; list-style-type:circle">
-					li Multi-accounting/rigging -- ban on first offence.
-					li Showing private information (e.g., screenshot of cards or role).
-					li Privately communicating game-related information to another player (including phrases with hidden meanings).
-				</ul>
-			li Unfair Influence/Tactics (game may be remade if players believe game was unfairly influenced)
-				<ul style="margin-top: 0px; margin-bottom: 5px; margin-left: -15px; list-style-type:circle">
-					li Using tactics not possible in person (e.g., claiming misclick on card selection or on shot. This does not include correcting misclaims.)
-					li Making promises to players if they play to certain goals (e.g., buying votes).
-					li Using code phrases to influence specific people (e.g., pinky promises).
-					li Using certain phrases to share information (e.g., saying "im hit" only as liberal).
-					li Abuse of game systems/features to influence players (e.g., blacklist mentions, threatening mod intervention, saying you will delete your account if you&apos;re lying).
-					li Fake ragequitting/loss dodging/refusing to play -- 6 hour timeout if about gameplay.
-					li Threatening ragequit/loss dodge/refusal to play -- 1 hour timeout if about gameplay.
-					li Stating which role card you have (e.g., &ldquo;old lady&rdquo;).
-					li Talking about an ongoing no-chat game via general or other chat, while seated.
-					li Speaking in-game or sharing information in other public chats while dead.
-				</ul>
-			li <span class="emphasis">The two rules below are punished the same way Unfair Influences/Tactics would be, but won't cause a game to be remade and will be considered separately from unfair influence instances:</span>
-				<ul style="margin-top: 0px; margin-bottom: 5px; margin-left: -15px; list-style-type:circle">
-					li Speaking on alt accounts while seated.
-					li Talking about a game as an observer ( eg., possible fascist lines) after a seated player asks you to stop.
-			br
-			p
-				strong Lying as liberal may be treated as a violation, unless it benefits your team. Any conflicts (e.g., BRR vs RR) started by a liberal must be resolved before the next government, unless you can prove it is beneficial to maintain it. However, not resolving lies by the time the current deck ends or when hitler zone starts (whichever comes first) will be treated as suboptimal play.
-			p  Examples of when to lie as liberal (not a complete list):
-			li Claiming BBR when receiving BBB (discourages fascists from discarding blues).
-			li Claiming BR when receiving BB (testing to see if hitler is president).
-			li Claiming a liberal is fascist on investigation (fake conflicting to get reactions).
-			h4
-				strong The following is permitted:
-			li Ignoring &ldquo;meta&rdquo; or &ldquo;correct order&rdquo; of play.
-			li Having a play-style that reveals information, as long as it is not claim-based or in conflict with any other rule.
-			li Having a discussion on what to do, even if it takes a long time, unless this conflicts with the stalling rule.
-			li Discarding blue policies to attain powers or give powers to a president, provided that if a claim is made, the intention is expressed clearly to the table
-			br
-			h2
-				strong Disclaimer
-			p <span class="emphasis">Moderators reserve the right to interpret this ruleset and determine what conduct is considered to be a violation. If a Moderator asks that you not do something, continuing such action may be punishable.</span> All moderative actions are taken as a team and all moderative actions taken are open to peer-review and discussion amongst the team, so as to prevent biased, rushed, or inconsistent actions. If you believe you have been unfairly punished, please calmly contact @Moderator in the #mod-support channel of our Discord server.
-			p
-				strong
-					u Moderative Actions
-			p The table below shows the process by which mods typically handle types of infractions, including how many warnings/timeouts a player may receive. Note that the table is the general template of expected actions, categorized by type, and that actions are typically taken based on specific offence, rather than type.
-			p
-				u
-					strong Moderators can&nbsp;still skip some, or all actions&nbsp;based on the specific case, history of the player, and if there&rsquo;s malicious intent.
-			p Punishments get progressively harsher as the offender repeats the infraction, ultimately resulting in a ban.
-			div(align='center')
-				table(border='1')
-					tbody(align='center')
-						tr
-							td(width='30%')
-								p
-									strong Offense
-							td(width='14%')
-								p
-									strong Warning
-							td(width='14%')
-								p
-									strong 1hr*
-							td(width='14%')
-								p
-									strong 6hr
-							td(width='14%')
-								p
-									strong 18hr**
-							td(width='14%')
-								p
-									strong Ban
-						<tr style="height:50px">
-							td
-								p
-									strong Doxxing
-							td
-								p Twice
-							td
-								p -
-							td
-								p Once
-							td
-								p Once
-							td
-								p Immediately if extreme
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong N-Word
-							td
-								p -
-							td
-								p -
-							td
-								p -
-							td
-								p 1st Offence
-							td
-								p 1st / 2nd offence
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong F-Slur
-							td
-								p -
-							td
-								p -
-							td
-								p Once
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Forbidden Language
-							td
-								p Twice
-							td
-								p -
-							td
-								p Once
-							td
-								p Once
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Forbidden Words
-							td
-								p Twice
-							td
-								p -
-							td
-								p Twice
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Forbidden Behavior
-							td
-								p 3 Times
-							td
-								p Twice
-							td
-								p Twice
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Forbidden Cardback
-							td
-								p 3 Times
-							td
-								p -
-							td
-								p Twice
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Ragequit
-							td
-								p -
-							td
-								p -
-							td
-								p -
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Gamethrowing***
-							td
-								p -
-							td
-								p -
-							td
-								p -
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Suboptimal Plays
-							td
-								p Twice
-							td
-								p -
-							td
-								p Once
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Stalling
-							td
-								p Twice
-							td
-								p -
-							td
-								p Twice
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Multi-accounting
-							td
-								p -
-							td
-								p -
-							td
-								p -
-							td
-								p -
-							td
-								p 1st Offence
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Cheating
-							td
-								p Once
-							td
-								p -
-							td
-								p -
-							td
-								p Once
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Unfair Influence / Tactics
-							td
-								p 3 Times
-							td
-								p Once****
-							td
-								p Twice
-							td
-								p Twice
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Improper VC Game
-							td
-								p 3 Times
-							td
-								p -
-							td
-								p Once
-							td
-								p Once
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Non-English (in gameplay)
-							td
-								p 3 Times
-							td
-								p Twice
-							td
-								p Once
-							td
-								p Once
-							td
-						</tr>
-						<tr style="height:50px">
-							td
-								p
-									strong Attempts to harm the site
-							td
-							td
-							td
-							td
-							td
-								p 1st Offence
-						</tr>
-			<p style='margin-bottom:0px'>*1hr Timeout is also an IP timeout for same duration.</p>
-			<p style='margin-bottom:0px'>**18hr Timeout may include an IP timeout for same duration if deemed appropriate by mods.</p>
-			<p style='margin-bottom:0px'>***Accidental throws/suboptimal plays may receive warnings instead if deemed appropriate by mods.
-			p ****Only for instances of threatening to leave an ongoing game over gameplay.
-			h3.ui.header Privacy
-			p Our privacy policy can be found #[a(href="https://secrethitler.io/about") here]
+  .ui.container.about-container
+    .ui.text.container
+      h1.ui.header.centered Terms Of Use
+    .ui.text.container
+      h1.text-2xl Terms of Use
+      h2.text-xl.mt-2.mb-1 Acceptance of the Terms of Use
+      p
+        | These terms of use are entered into by and between You and the Max-Planck Institute for Human Development (&ldquo;Institute,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;).
+        | The following terms and conditions govern your access to and use of https://secret-hitlerio-dev.chm.mpib-berlin.mpg.de/, including any content, functionality, and services offered on or through https://secret-hitlerio-dev.chm.mpib-berlin.mpg.de/ (the &ldquo;Website&rdquo;).
+        | Please read the Terms of Use carefully before you start to use the Website.
+        | By clicking to accept the Terms of Use when this option is made available to you, you accept and agree to be bound and abide by these Terms of Use and our Privacy Policy in the following, incorporated herein by reference.
+        | If you do not want to agree to these Terms of Use or the following Privacy Policy, you must not access or use the Website.
+        | This Website is offered and available to users who are 18 years of age or older.
+        | By using this Website, you represent and warrant that you are of legal age to form a binding contract with the Institute and meet the foregoing eligibility requirements.
+        | If you do not meet these requirements, you must not access or use the Website.
+      h2.text-xl.mt-2.mb-1 Changes to the Terms of Use
+      p
+        | We may revise and update these Terms of Use from time to time in our sole discretion.
+        | All changes are effective immediately whenever we post them, and apply to all access to and use of the Website thereafter.
+        | Your continued use of the Website following the posting of revised Terms of Use means that you accept and agree to the changes.
+        | You are expected to check this page from time to time so you are aware of any changes, as they are binding on you.
+      h2.text-xl.mt-2.mb-1 Accessing the Website
+      p
+        | We reserve the right to withdraw or amend this Website, and any service or material we provide on the Website, including the Game, in our sole discretion without notice.
+        | We will not be liable if for any reason all or any part of the Website is unavailable at any time or for any period.
+        | From time to time, we may restrict access to some parts of the Website, or the entire Website, to users.
+        | You are responsible for both:
+        ul.list-disc.list-inside.ml-3
+          li Making all arrangements necessary for you to have access to the Website.
+          li
+            | Ensuring that all persons who access the Website through your internet connection are aware of these Terms of Use and comply with them.
+        |     You agree that all information you provide through this Website, including, but not limited to, through the use of the Game, is governed by our Privacy Policy in the following, and you consent to all actions we take with respect to your information consistent with our Privacy Policy.
+        |     We have the right to disable any unique access link that we provide you with at any time in our sole discretion for any or no reason, including if, in our opinion, you have violated any provision of these Terms of Use.
+      h2.text-xl.mt-2.mb-1 Intellectual Property Rights
+      p
+        | The Website and its entire contents, features, and functionality is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+        | For more details, see https://creativecommons.org/licenses/by-nc-sa/4.0/.
+      h2.text-xl.mt-2.mb-1 Trademarks
+      p
+        | The Institute name, the Institute logo, and all related names, logos, product and service names, designs, and slogans are trademarks of the Institute or its affiliates or licensors.
+        | You must not use such marks without the prior written permission of the Institute.
+        | All other names, logos, product and service names, designs, and slogans on this Website are the trademarks of their respective owners.
+      h2.text-xl.mt-2.mb-1 Copyright Infringement
+      p
+        | If you believe that any images in the Game violate your copyright, please send a notice of copyright infringement to 
+        a(href='mailto:ykeller@mpib-berlin.mpg.de') ykeller@mpib-berlin.mpg.de
+        | .
+      h2.text-xl.mt-2.mb-1
+        | Information About You and Your Visits to the Website
+        p
+          | All information we collect on this Website, including your written text and actions, is subject to our Privacy Policy in the following.
+          | By using the Website, you consent to all actions taken by us with respect to your information in compliance with the following Privacy Policy.
+          | Any images or data collected through the use of this Website will be used for scientific and research purposes only and will not be used for any commercial purpose.
+        h2.text-xl.mt-2.mb-1 Linking to the Website
+        p
+          | You may link to our Website, provided you do so in a way that is fair and legal and does not damage our reputation or take advantage of it, but you must not establish a link in such a way as to suggest any form of association, approval, or endorsement on our part.
+        h2.text-xl.mt-2.mb-1 Disclaimer of Warranties
+        p
+          | To the fullest extent provided by law, we will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses, or other technologically harmful material that may infect your computer equipment, computer programs, data, or other proprietary material due to your use of the Website or any service or items obtained through the Website.
+          | Your use of the Website, its content, and any services or items obtained through the Website is at your own risk.
+          | The Website, its content, and any services or items obtained through the Website are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis, without any warranties of any kind, either express or implied.
+          | Neither the Institute nor any person associated with the Institute makes any warranty or representation with respect to the completeness, security, reliability, quality, accuracy, or availability of the Website.
+          | Without limiting the foregoing, neither the Institute nor anyone associated with the Institute represents or warrants that the Website, its content, or any services or items obtained through the Website will be accurate, reliable, error- free, or uninterrupted, that defects will be corrected, that our site or the server that makes it available are free of viruses or other harmful components, or that the Website or any services or items obtained through the Website will otherwise meet your needs or expectations.
+          | To the fullest extent provided by law, the Institute hereby disclaims all warranties of any kind, whether express or implied, statutory, or otherwise, including but not limited to any warranties of non-infringement and fitness for particular purpose.
+          | The foregoing does not affect any warranties that cannot be excluded or limited under applicable law.
+        h2.text-xl.mt-2.mb-1 Limitiation of Liability
+        p
+          | To the fullest extent provided by law, in no event will the Institute, its affiliates, or their licensors, service providers, employees, agents, officers, or directors be liable for damages of any kind, under any legal theory, arising out of or in connection with your use, or inability to use, the Website, any websites linked to it, any content on the Website or such websites, including any direct, indirect, special, incidental, consequential, or punitive damages, including but not limited to, personal injury, pain or suffering, emotional distress, loss of revenue, loss of profits, loss of business or anticipated savings, loss of use, loss of goodwill, loss of data, and whether caused by tort (including negligence), breach of contract, or otherwise, even if foreseeable.
+        h2.text-xl.mt-2.mb-1 Indemnification
+        p
+          | You agree to defend, indemnify, and hold harmless the Institute, its affiliates, licensors, and service providers, and its and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors, and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorney&apos;s fees) arising out of or relating to your violation of these Terms of Use or your use of the Website, including, but not limited to, your generated images, any use of the Website&apos;s content and services, including the Game, other than as expressly authorized in these Terms of Use, or your use of any information obtained from the Website.
+        h2.text-xl.mt-2.mb-1 Governing Law and Jurisdiction
+        p
+          | All matters relating to the Website and these Terms of Use, and any dispute or claim arising therefrom or related thereto (in each case, including non-contractual disputes or claims), shall be governed by and construed in accordance with the laws of the Federal Republic of Germany..
+          | Any legal suit, action, or proceeding arising out of, or related to, these Terms of Use or the Website shall be instituted exclusively in the federal courts of justice in Germany, although we retain the right to bring any suit, action, or proceeding against you for breach of these Terms of Use in your country of residence or any other relevant country.
+          | You waive any and all objections to the exercise of jurisdiction over you by such courts and to venue in such courts.
+        h2.text-xl.mt-2.mb-1 Arbitration
+        p
+          | At the Institute&apos;s sole discretion, it may require you to submit any disputes arising from these Terms of Use or use of the Website, including disputes arising from or concerning their interpretation, violation, invalidity, non-performance, or termination, to final and binding arbitration under the Arbitration Rules of the German Institution of Arbitration (DIS), applying German law.
+        h2.text-xl.mt-2.mb-1 Limitation on Time to File Claims
+        p
+          | Any cause of action or claim you may have arising out of or relating to these terms of use or the Website must be commenced within one (1) year after the cause of action accrues; otherwise, such cause of action or claim is permanently barred.
+        h2.text-xl.mt-2.mb-1 Waiver and Severability
+        p
+          | No waiver by the Institute of any term or condition set out in these Terms of Use shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure of the Institute to assert a right or provision under these Terms of Use shall not constitute a waiver of such right or provision.
+          | If any provision of these Terms of Use is held by a court or other tribunal of competent jurisdiction to be invalid, illegal, or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent such that the remaining provisions of the Temrs of Use will continue in full force and effect.
+        h2.text-xl.mt-2.mb-1 Entire Agreement
+        p
+          | The Terms of Use and our Privacy Policy in the following constitute the sole and entire agreement between you and the Max Planck Institute for Human Development regarding the Website and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, regarding the Website.
+        h1.text-2xl.mt-3 Content Standards
+        h2.text-xl.mt-2.mb-1 Children Under the Age of 18
+        p
+          | This Website is offered and available to users worldwide who are 18 years of age or older, except where prohibited by law.
+          | No one under age 18 may provide any information to the Website.
+          | We do not knowingly collect information from children under 18.
+          | If you are under 18, do not use or provide any information on this Website.
+        h2.text-xl.mt-2.mb-1 Prohibited Uses
+        p
+          | You may use the Website only for lawful purposes and in accordance with these Terms of Use.
+          | You agree not to use the Website:
+          ul.list-disc.list-inside.ml-3
+            li
+              | In any way that violates any applicable federal, state, local, or international law or regulation (including, without limitation, any laws regarding the export of data or software to and from the US or other countries).
+            li
+              | To send, knowingly receive, upload, download, use, or re-use any material that does not comply with the Requirements set out below in these Content Standards.
+            li
+              | To impersonate or attempt to impersonate the Max Planck Institute for Human Development, an employee of the Max Planck Institute for Human Development, another user, or any other person or entity.
+            li
+              | To engage in any other conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Website, or which, as determined by us, may harm the institute or users of the Website, or expose them to liability.
+          |     Additionally, you agree not to:
+          ul.list-disc.list-inside.ml-3
+            li
+              | Use the Website in any manner that could disable, overburden, damage, or impair the site or interfere with any other party&apos;s use of the Website, including their ability to engage in real time activities through the Website.
+            li
+              | Use any robot, spider, or other automatic device, process, or means to access the Website for any purpose, including monitoring or copying any of the material on the Website.
+            li
+              | Use any manual process to monitor or copy any of the material on the Website, or for any other purpose not expressly authorized in these Content Standards, without our prior written consent.
+            li
+              | Use any device, software, or routine that interferes with the proper working of the Website.
+            li
+              | Introduce any viruses, Trojan horses, worms, logic bombs, or other material that is malicious or technologically harmful.
+            li
+              | Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of the Website, the server on which the Website is stored, or any server, computer, or database connected to the Website.
+            li
+              | Attack the Website via a denial-of-service attack or a distributed denial-of-service attack.
+            li Otherwise attempt to interfere with the proper working of the Website.
+        h2.text-xl.mt-2.mb-1 User Contributions
+        p
+          | As part of playing this Game, you can interact with other players via free text communication.
+          | Your contributions must comply with the Requirements set out below in these Content Standards.
+          ul.list-disc.list-inside.ml-3
+            li
+              | Any written text contribution will be considered non-confidential and non-proprietary.
+            li
+              | You understand and acknowledge that you are responsible for your free text communication on the platform, and you, not the Max Planck Institute for Human Development nor Max-Planck-Gesellschaft zur F&ouml;rderung der Wissenschaften e.V., have full responsibility for such content, including its legality and appropriateness.
+              | We are not responsible or liable to any third party for the content or accuracy of any text messages written by you or any other user of the Website.
+        h2.text-xl.mt-2.mb-1 Monitoring and Enforcement; Termination
+        p
+          | We have the right to:
+          ul.list-disc.list-inside.ml-3
+            li
+              | Remove or refuse to post any User Contributions for any or no reason in our sole discretion.
+            li
+              | Take any action with respect to any user contribution that we deem necessary or appropriate in our sole discretion, including if we believe that such user contribution violates the Terms of Use, including the Content Standards, infringes any intellectual property right or other rights of any person or entity, threatens the personal safety of users of the Website or the public, or could create liability for the Institute.
+            li
+              | Take appropriate legal action, including without limitation, referral to law enforcement, for any illegal or unauthorized use of the Website.
+            li
+              | Terminate or suspend your access to all or part of the Website for any or no reason, including without limitation, any violation of these Terms of Use.
+          |     Without limiting the foregoing, we have the right to cooperate fully with any law enforcement authorities or court order requesting or directing us to disclose information gathered about you during the course of your interactions with the Website.
+          |     YOU WAIVE AND HOLD HARMLESS THE Institute, ITS AFFILIATES AND SERVICE PROVIDERS FROM ANY CLAIMS RESULTING FROM ANY ACTION TAKEN BY ANY OF THE FOREGOING PARTIES DURING, OR TAKEN AS A CONSEQUENCE OF, INVESTIGATIONS BY EITHER SUCH PARTIES OR LAW ENFORCEMENT AUTHORITIES.
+          |     We cannot review all free text user contributions before they are posted on the Website and cannot ensure prompt removal of objectionable material after is has been posted.
+          |     Accordingly, we assume no liability for any action or inaction regarding content provided by any user.
+          |     We have no liability or responsibility to anyone for performance or nonperformance of the activities described in this section.
+        h2.text-xl.mt-2.mb-1 Requirements
+        p
+          | These Requirements apply to any and all free text communication on the platform
+          ul.list-disc.list-inside.ml-3
+            li
+              | Written text must in their entirety comply with all applicable federal, state, local, and international laws and regulations.
+          |     Without limiting the foregoing, written communication must not:
+          ul.list-disc.list-inside.ml-3
+            li
+              | Contain any material that is defamatory, obscene, indecent, abusive, offensive, harassing, violent, hateful, inflammatory, or otherwise objectionable.
+            li Contain sexually explicit or pornographic material.
+            li
+              | Infringe any patent, trademark, trade secret, copyright, or other intellectual property or other rights of any other person.
+            li
+              | Violate the legal rights (including the rights of publicity and privacy) of others or contain any material that could give rise to any civil or criminal liability under applicable laws or regulations or that otherwise may be in conflict with these Content Standards.
+            li
+              | Impersonate any person, or misrepresent your identity or affiliation with any person or organization.
+        h1.text-2xl.mt-3.mb-1 Data Protection Information
+        p
+          | The Max-Planck-Gesellschaft zur F&ouml;rderung der Wissenschaften e.V. (MPG) takes the protection of your personal data very seriously.
+          | We process personal data gathered when visiting our Website in compliance with applicable data protection legislation.
+          | We neither publish your data nor transmit them to third parties on an unauthorized basis.
+          | In the following sections, we explain which data we record when you visit this Website and exactly how they are utilized:
+        h2.text-xl.mt-2.mb-1 Scope of Data Processing
+        p
+          | As a matter of principle, we gather and utilize users&apos; personal data only to the extent required to ensure the functioning of our Website and of our contents and services.
+          | The gathering and utilization of our users&apos; personal data normally occurs after users have granted their consent.
+          | An exception occurs where data processing is legally permitted.
+          | As for the scope of data processing when you use this Website, data will be collected for the implementation of the research project and for the research purposes.
+        h2.text-xl.mt-2.mb-1 Legal Basis of Data Processing
+        p
+          | To the extent that permission of the affected individual is obtained for the processing of personal data, Article 6 (1) lit. a of the EU General Data Protection Regulation (GDPR) serves as the legal basis.
+          | In the processing of personal data to fulfil a contract whose contractual party is the individual affected, Article 6 (1) lit. b GDPR serves as the legal basis.
+          | This also applies to processing required to implement pre-contractual measures.
+          | If processing is required to safeguard the justified interest of the MPG or a third party and the interests, basic rights and basic freedoms of the affected individual do not outweigh the first-mentioned interest, Article 6 (1) lit. f GDPR serves as the basis for such processing.
+        h2.text-xl.mt-2.mb-1 Data Deletion and Storage Duration
+        p
+          | The affected individual&apos;s personal data are deleted or blocked as soon as the purpose of the storage ceases to apply.
+          | Storage can also occur if provided for by European or national legislators in EU regulations, acts or other legislation to which the MPG is subject.
+          | A blocking or deletion of data then occurs only if a storage period prescribed by one of the aforementioned norms expires, unless a necessity exists in relation to the further storage of the data for the arrangement of a contract or the fulfilment of a contract.
+        h2.text-xl.mt-2.mb-1 Contact Details of the Individuals Responsible
+        p
+          | The entity responsible in the meaning of the General Data Protection Regulation and other national data protection acts as well as other data protection legislation is:
+          br
+          br
+          |     Max-Planck-Gesellschaft zur F&ouml;rderung der Wissenschaften e.V. (MPG)
+          br
+          |     Hofgartenstra&szlig;e 8
+          br
+          |     D-80539 Munich, Germany
+          br
+          |     Telephone: +49 (89) 2108-0
+          br
+          |     Contact form: 
+          a(target='_blank' rel='noopener noreferrer' href='https://www.mpg.de/contact/requests') https://www.mpg.de/contact/requests
+          br
+          |     Internet: 
+          a(target='_blank' rel='noopener noreferrer' href='https://www.mpg.de') https://www.mpg.de
+          br
+          br
+          |     The entity responsible for this Website:
+          br
+          br
+          |     Max Planck Institute for Human Development
+          br
+          |     Lentzeallee 94
+          br
+          |     14195 Berlin, Germany
+          br
+          |     Managing Director: Iyad Rahwan, E-mail: 
+          a(href='mailto:sekrahwan@mpib-berlin.mpg.de' target='_blank' rel='noopener noreferrer') sekrahwan@mpib-berlin.mpg.de
+          br
+          |     Study Director: Yannik Keller, E-mail: 
+          a(href='mailto:ykeller@mpib-berlin.mpg.de' target='_blank' rel='noopener noreferrer') ykeller@mpib-berlin.mpg.de
+        h2.text-xl.mt-2.mb-1 Data Protection Officer&apos;s Contact Details
+        p
+          | Heidi Schuster
+          br
+          |     Hofgartenstra&szlig;e 8
+          br
+          |     D-80539 Munich, Germany
+          br
+          |     Telephone: +49 (89) 2108-1554
+          br
+          |     E-mail: 
+          a(href='mailto:datenschutz@mpg.de ' target='_blank' rel='noopener noreferrer') datenschutz@mpg.de
+        h2.text-xl.mt-2.mb-1 Provision of the Website and Creation of Log Files
+        p
+          | Each time you visit this Website, our service and applications automatically record data and information from the computer system of the visiting computer.
+          | The following data are gathered temporarily:
+          ul.list-disc.list-inside.ml-3
+            li Your IP address
+            li Date and time of your access to the Website
+            li Address of the page visited
+            li Name and version of your browser/operating system (if transmitted)
+          |     These data are stored in our systems&apos; log files.
+          |     These data are not stored together with the user&apos;s other personal data.
+          |     The legal basis for the temporary saving of data and log files is Article 6 (1) lit. f GDPR.
+          |     Storage occurs in log files in order to ensure the Website&apos;s functionality.
+          |     The data also help us optimize the Website, eliminate malfunctions and ensure our IT system security.
+          |     Our justified interest in data processing pursuant to Article 6 (1) lit. f GDPR also lies in such purposes.
+          |     The data are deleted as soon as they are no longer required to achieve the purpose for which they were gathered.
+          |     If data are gathered for the provision of the Website, this is the case if the respective visit is ended.
+          |     In the instance that data are stored in log files, this is the case after seven days at the latest.
+          |     Storage above and beyond this period is possible.
+          |     In this case, the users&apos; IP addresses are deleted or removed so they can no longer be allocated to the visiting client.
+          |     The recording of data for the provision of the Website and the storage of data in log files is essential to operate the Website.
+          |     Consequently, users do not have an option to revoke such data recording.
+        h2.text-xl.mt-2.mb-1 Utilization of Cookies
+        p
+          | Our Website utilizes cookies.
+          | Cookies are text files stored in the Internet browser or by the Internet browser on the user&apos;s computer system.
+          | If a user visits the Website, a cookie can be stored on the user&apos;s operating system.
+          | This cookie contains a sequence of characters enabling the browser to be clearly identified when visiting the website again.
+          | Some elements of our Website also technically require the identification of the visiting browser after a change of page.
+          | The legal basis for personal data processing while utilizing cookies is Article 6 (1) lit. f GDPR.
+          | The purpose of utilizing technically necessary cookies is to simplify the utilization of the Website for users.
+          | Some of our Website&apos;s functions cannot be offered without the utilization of cookies.
+          | For these, it is necessary that the browser can also be re-identified following a change of page.
+          | User data gathered by technically necessary cookies are not utilized to prepare user profiles.
+          | Our justified interest in personal data processing pursuant to Article 6 (1) lit. f GDPR also lies in such purposes.
+          | Cookies are stored on the user&apos;s computer, which transmits them to our site.
+          | For this reason, you, as the user, also have full control over the utilization of cookies.
+          | You can deactivate or restrict the transmission of cookies through changing your Internet browser settings.
+          | Cookies that have already been saved can be deleted at any time.
+          | This can also occur automatically.
+          | If cookies for our Website are deactivated, you may find not all of the Website&apos;s functions can continue to be utilized in full.
+        h2.text-xl.mt-2.mb-1 Report Player
+        p
+          | When you use this Website, you will be able to flag players if you think that the players messages violate the Content Standards in the above.
+          | If you flag a player, we save no personal data of yours, i.e., reporting content is anonymous.
+        h2.text-xl.mt-2.mb-1 Registration
+        p
+          | When setting your username and playing the game, you participate in the leaderboard on this website.
+          | We inform you about the specific processing of the data, and we obtain your consent as part of the registration procedure.
+          | Reference is also made to this data protection statement.
+          | The legal basis for the processing of data is the user&apos;s consent pursuant to Article 6 (1) lit. a GDPR.
+          | Registering the user is necessary to provide certain content and services on our Website.
+          | The data are deleted as soon as they are no longer required to achieve the purpose for which they were gathered.
+          | We are unable to track user activity outside of our website, which means we cannot cancel or deactivate usernames upon request.
+          | It is the user\&rsquo;s responsibility to decide weather to use their real name or pseudonames.
+        h2.text-xl.mt-2.mb-1 Rights of Individuals Affected
+        p
+          | As an individual whose personal data are gathered as part of the aforementioned services, you have, in principle, the following rights, to the extent that no legal exceptions are applicable in individual cases:
+          ul.list-disc.list-inside.ml-3
+            li Information (Article 15 GDPR)
+            li Correction (Article 16 GDPR)
+            li Deletion (Article 17 (1) GDPR)
+            li Restriction of processing (Article 18 GDPR)
+            li Data transmission (Article 20 GDPR)
+            li Revocation of processing (Article 21 GDPR)
+            li Revocation of consent (Article 7 (3) GDPR)
+            li
+              | Right to complain to the regulator (Article 77 GDPR). For the MPG, this is the Bavarian Data Protection Authority (BayLDA), Postbox 1349, 91504 Ansbach.
+        h2.text-xl.mt-2.mb-1 Contact
+        p
+          | You can provide notification of any changes to your contact data, clarify questions about or object to this Website, or assert deletion, revocation, and information rights by contacting 
+          a(href='mailto:ykeller@mpib-berlin.mpg.de' target='_blank' rel='noopener noreferrer') ykeller@mpib-berlin.mpg.de
+          | .

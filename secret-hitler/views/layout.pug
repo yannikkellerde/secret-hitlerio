@@ -55,25 +55,25 @@ html(lang="en")
         a.active.item Changelog
       else
         a.item(href="/changelog") Changelog
+      if gameplay_rules
+        a.active.item Gameplay Rules
+      else
+        a.item(href="/contest-gameplay-rules") Gameplay Rules
+
       if rules
-        a.active.item Rules
+        a.active.item Secret-Hitler Rules
       else
-        a.item(href="/rules") Rules
+        a.item(href="/rules") Secret-Hitler Rules
+        
+      if competition_rules
+        a.active.item Competition Rules
+      else
+        a.item(href="/competition-rules") Competition Rules
 
-      if howtoplay
-        a.active.item How to Play
+      if consent
+        a.active.item Consent
       else
-        a.item(href="/how-to-play") How to Play
-
-      if stats
-        a.active.item Stats
-      else
-        a.item(href="/stats") Stats
-
-      if wiki
-        a.active.item Wiki
-      else
-        a.item(href="https://github.com/cozuya/secret-hitler/wiki") Wiki
+        a.item(href="/consent") Consent
 
       if discord
         a.active.item Discord
@@ -95,6 +95,11 @@ html(lang="en")
       else
         a.item(href="/about") About
 
+      if imprint
+        a.active.item Imprint
+      else
+        a.item(href="/imprint") Imprint
+
     div.pusher
       if !game
         nav.ui.secondary.pointing.top.fixed.inverted.menu#top-menu
@@ -110,25 +115,25 @@ html(lang="en")
           else
             a.item(href="/") Home
 
+          if gameplay_rules
+            a.active.item Gameplay Rules
+          else
+            a.item(href="/contest-gameplay-rules") Gameplay Rules
+
           if rules
-            a.active.item Rules
+            a.active.item Secret-Hitler Rules
           else
-            a.item(href="/rules") Rules
+            a.item(href="/rules") Secret-Hitler Rules
 
-          if howtoplay
-            a.active.item How to Play
+          if competition_rules
+            a.active.item Competition Rules
           else
-            a.item(href="/how-to-play") How to Play
+            a.item(href="/competition-rules") Competition Rules
 
-          if stats
-            a.active.item Stats
+          if consent
+            a.active.item Consent
           else
-            a.item(href="/stats") Stats
-
-          if wiki
-            a.active.item Wiki
-          else
-            a.item(href="https://github.com/cozuya/secret-hitler/wiki") Wiki
+            a.item(href="/consent") Consent
 
           if discord
             a.active.item Discord
@@ -150,6 +155,10 @@ html(lang="en")
           else
             a.item(href="/about") About
 
+          if imprint
+            a.active.item Imprint
+          else
+            a.item(href="/imprint") Imprint
 
           if username
             div.item.right

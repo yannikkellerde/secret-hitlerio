@@ -85,8 +85,20 @@ module.exports = () => {
 		renderPage(req, res, 'page-changelog', 'changelog');
 	});
 
-	app.get('/how-to-play', (req, res) => {
-		renderPage(req, res, 'page-howtoplay', 'howtoplay');
+	app.get('/contest-gameplay-rules', (req, res) => {
+		renderPage(req, res, 'page-contest-gameplay-rules', 'gameplay_rules');
+	});
+
+	app.get('/competition-rules', (req, res) => {
+		renderPage(req, res, 'page-competition-rules', 'competition_rules');
+	});
+
+	app.get('/imprint', (req, res) => {
+		renderPage(req, res, 'page-imprint', 'imprint');
+	});
+
+	app.get('/consent', (req, res) => {
+		renderPage(req, res, 'page-consent-form', 'consent');
 	});
 
 	app.get('/stats', (req, res) => {

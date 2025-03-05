@@ -16,7 +16,7 @@ else
 fi
 
 # Give the server(s) a few seconds to start
-sleep 3
+sleep 10
 
 # Optionally run your script(s) to create accounts, assign mods, etc.
 yarn create-accounts
