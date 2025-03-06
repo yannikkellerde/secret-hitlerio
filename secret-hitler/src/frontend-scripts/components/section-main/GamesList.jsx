@@ -12,7 +12,9 @@ const GamesList = (props)=> {
 		filtersVisible: false
 	};
 
-	const [isMounted, setIsMounted] = useState(false)
+	const [queue, setQueue] = useState([])
+	const [inQueue, setInQueue] = useState(false)
+	const [removeFromQueueDisabled, setRemoveFromQueueDisabled] = useState(true)
 
 	const toggleFilter = value => {
 		const { gameFilter, changeGameFilter } = props;
@@ -162,18 +164,14 @@ const GamesList = (props)=> {
 		);
 	}
 
-	const [queue, setQueue] = useState([])
-	const [inQueue, setInQueue] = useState(false)
-	const [removeFromQueueDisabled, setRemoveFromQueueDisabled] = useState(true)
-
 	useEffect(()=>{
+		let isMounted = true; 
 
 		props.socket.on("userStatusInQueue", (data)=>{
 			console.log("userStatusInQueue", data)
 			if(data.status){
 				if(data.action == "added"){ 
 					setInQueue(true)
-					setIsMounted(true)
 					setTimeout(()=>{ setRemoveFromQueueDisabled(false) }, 2000)
 				}
 				if(data.action == "removed"){ 
@@ -184,9 +182,9 @@ const GamesList = (props)=> {
 		})
 
 		props.socket.on("setQueue", (data)=>{
-			console.log("queue is updated from backend", data)
 			if( data.status == true ){
 				if (isMounted){
+					console.log("queue is updated from backend", data, props.userInfo.userName)
 					setQueue(data.queue)
 				}
 			}else{
@@ -202,24 +200,16 @@ const GamesList = (props)=> {
 		})
 
 		setInterval(()=>{
-			props.socket.emit('getQueue', {dummy: "dummy"});
+			if (isMounted){
+				console.log("props.socket.emit 'getQueue' is called. ")
+				props.socket.emit('getQueue', {dummy: "dummy"});
+			}
 		}, 1000)
-
-
-		return ()=>{
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			console.log("------")
-			setIsMounted(false)
-		}
 		
-	}, [isMounted])
+		return ()=>{
+			isMounted = false
+		}
+	}, [])
 
 	useEffect(()=>{
 		if (inQueue){
@@ -230,8 +220,6 @@ const GamesList = (props)=> {
 	}, [inQueue])
 
 	const updateUserStatesInQueue = (status) =>{
-		console.log("inside addToQueue")
-		// console.log("props ", props)
 		if ( status=='add' ){
 			props.socket.emit('addToQueue', {dummy: "dummy"});
 		}else{
