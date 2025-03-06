@@ -294,7 +294,7 @@ class ReplayGamechat extends React.Component {
 								)}
 								{isSeated
 									? `${chat.userName} {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
-									: chat.userName}
+									: `${chat.userName} asfasdf`}
 								{': '}
 							</span>
 							<span className={isGreenText ? 'greentext' : ''}>{chatContents}</span>{' '}

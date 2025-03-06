@@ -219,6 +219,10 @@ class Players extends React.Component {
 
 		const time = Date.now();
 		const renderPlayerName = (player, i) => {
+			if (userInfo.userName == player.userName){
+				return `Seat ${i + 1} (You)`
+			}
+			return `Seat ${i + 1}`
 			const userName =
 				isBlind && !isReplay
 					? gameInfo.gameState.isTracksFlipped && gameInfo.general.replacementNames

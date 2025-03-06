@@ -200,10 +200,8 @@ const GameChatItem = ({ chat, playerListPlayer, seatedUserNames, gameSettings, a
 					{gameInfo.gameState.isTracksFlipped
 						? isSeated
 							? isBlind
-								? `${
-										gameInfo.general.replacementNames[gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName)]
-								  } {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
-								: `${chat.userName} {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
+								? `Seat {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
+								: `Seat {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
 							: chat.staffRole === 'moderator' && chat.userName === 'Incognito' && canSeeIncognito
 							? chat.hiddenUsername
 							: isBlind && !isMod

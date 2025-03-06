@@ -896,10 +896,8 @@ class Gamechat extends React.Component {
 								{gameInfo.gameState.isTracksFlipped
 									? isSeated
 										? isBlind
-											? `${
-													gameInfo.general.replacementNames[gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName)]
-											  } {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
-											: `${chat.userName} {${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}}`
+											? `Seat ${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}` // it seems this one has impact on the UI in chat, not other GameChat...jsx files. 
+											: `Seat ${gameInfo.publicPlayersState.findIndex(publicPlayer => publicPlayer.userName === chat.userName) + 1}`
 										: chat.staffRole === 'moderator' && chat.userName === 'Incognito' && canSeeIncognito
 										? chat.hiddenUsername
 										: isBlind && !isMod

@@ -255,11 +255,11 @@ const GamesList = (props)=> {
 						
 						!inQueue ? (
 							<button className="fluid ui button primary create-game-button" onClick={()=>{ updateUserStatesInQueue("add") }}>
-								Add to Queue
+								Join Queue
 							</button>
 						):(
 							<button className="fluid ui button primary create-game-button" disabled={removeFromQueueDisabled} onClick={()=>{ updateUserStatesInQueue("remove") }}>
-								Remove from Queue
+								Leave Queue
 							</button>
 						)
 						
