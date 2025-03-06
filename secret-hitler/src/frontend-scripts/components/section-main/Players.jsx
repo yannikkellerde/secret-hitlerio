@@ -499,6 +499,7 @@ class Players extends React.Component {
 	};
 
 	clickedTakeSeat = () => {
+		console.log("clickedTakeSeat is called.")
 		const { gameInfo, userInfo, onClickedTakeSeat, userList } = this.props;
 		const user = userList.list ? userList.list.find(user => user.userName === userInfo.userName) : null;
 

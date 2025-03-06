@@ -424,6 +424,7 @@ export class App extends React.Component {
 	// ***** end dev helpers *****
 
 	handleSeatingUser(password) {
+		console.log("handleSeatingUser is called")
 		const { gameInfo } = this.props;
 
 		const fetchedUrl = window.location.href

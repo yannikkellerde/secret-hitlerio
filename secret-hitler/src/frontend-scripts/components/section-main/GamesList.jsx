@@ -194,8 +194,8 @@ const GamesList = (props)=> {
 		})
 
 		props.socket.on("goToGame", (data)=>{
-			console.log("goToGame data", data)
-			alert("Go to game is called from backend " + data.gameId)
+			// console.log("goToGame data", data)
+			console.log("Go to game is called from backend " + data.gameId)
 			window.location.href = `#/table/${data.gameId}`;
 		})
 
@@ -212,10 +212,18 @@ const GamesList = (props)=> {
 	}, [])
 
 	useEffect(()=>{
+		let isMounted = true; 
+
 		if (inQueue){
 			setInterval(()=>{
-				props.socket.emit('isGameIdSet', {dummy: "dummy"});
+				if(isMounted){
+					props.socket.emit('isGameIdSet', {dummy: "dummy"});
+				}
 			}, 1000)
+		}
+
+		return ()=>{
+			isMounted = false
 		}
 	}, [inQueue])
 
