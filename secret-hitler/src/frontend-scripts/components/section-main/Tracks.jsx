@@ -664,10 +664,10 @@ class Tracks extends React.Component {
 				<CardFlinger userInfo={userInfo} gameInfo={gameInfo} socket={socket} />
 				<EnactedPolicies gameInfo={gameInfo} />
 				<div>
-					<div className="game-name" onClick={showDate}>
+					{/* <div className="game-name" onClick={showDate}>
 						{gameInfo.general.flag !== 'none' && <i className={`ui flag ${gameInfo.general.flag}`} />}
 						<span>{gameInfo.general.name}</span>
-					</div>
+					</div> */}
 					<div className="option-icons">{this.optionIcons(gameInfo)}</div>
 					<div className="player-count">
 						Players: <span>{gameInfo.publicPlayersState.length}</span>
