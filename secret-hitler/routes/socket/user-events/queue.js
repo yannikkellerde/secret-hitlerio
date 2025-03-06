@@ -59,7 +59,7 @@ const getQueue = async (socket, passport, data) => {
 const checkIfThereAreSevenPlayers = async (socket, passport, io) => {
     const userInQueue = await Queue.find({gmaeId: null})
     if (userInQueue.length>=7){
-        console.log('checkIfThereAreSevenPlayers : there are 7 players we can start a new game.')
+        // console.log('checkIfThereAreSevenPlayers : there are 7 players we can start a new game.')
         // this socket and passport is for the latest user joint (socket, passport)
         await startANewGame(socket, passport, io)
     }
