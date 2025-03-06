@@ -20,6 +20,9 @@ body {
 	max-width: 1127px;
 	margin: 0 auto;
 	font-family: 'Comfortaa', serif;
+	div#main {
+		margin-top: 80px;
+	}
 }
 
 body,
@@ -132,6 +135,14 @@ span.emphasis {
 	background: -moz-linear-gradient(left, #000000 0%, #100000 50%, #000000 100%);
 	background: -webkit-linear-gradient(left, #000000 0%, #100000 50%, #000000 100%);
 	background: linear-gradient(to right, #000000 0%, #100000 50%, #000000 100%);
+	display: flex;
+	flex-wrap: wrap;
+
+	.menu-items-container {
+		display: flex;
+		flex-wrap: wrap;
+		flex: 1;
+	}
 
 	.left.menu .button {
 		color: #fff;
@@ -143,6 +154,7 @@ span.emphasis {
 
 	.ui.button {
 		color: #fff;
+		max-height: 3em;
 	}
 }
 
@@ -163,6 +175,15 @@ span.emphasis {
 	}
 	#window-block {
 		display: none;
+	}
+
+	.menu-items-container {
+		flex-direction: column;
+		width: 100%;
+
+		a.item {
+			width: 100%;
+		}
 	}
 }
 
@@ -203,8 +224,8 @@ span.emphasis {
 }
 
 .ui.container.rules-container {
-	margin: 50px 0 0 0;
-	padding: 10px 0;
+	margin: 80px 0 0 0;
+	padding: 30px 0;
 	background: #030000;
 	color: #ccc;
 

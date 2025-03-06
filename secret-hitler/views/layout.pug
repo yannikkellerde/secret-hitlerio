@@ -110,55 +110,56 @@ html(lang="en")
               a.ui.button(href="/observe/") Game Lobby
           .left.menu#mobile-block
             a.ui.button#menupopout Menu
-          if home
-            a.active.item Home
-          else
-            a.item(href="/") Home
+          .menu-items-container
+            if home
+              a.active.item Home
+            else
+              a.item(href="/") Home
 
-          if gameplay_rules
-            a.active.item Gameplay Rules
-          else
-            a.item(href="/contest-gameplay-rules") Gameplay Rules
+            if gameplay_rules
+              a.active.item Gameplay Rules
+            else
+              a.item(href="/contest-gameplay-rules") Gameplay Rules
 
-          if rules
-            a.active.item Secret-Hitler Rules
-          else
-            a.item(href="/rules") Secret-Hitler Rules
+            if rules
+              a.active.item Secret-Hitler Rules
+            else
+              a.item(href="/rules") Secret-Hitler Rules
 
-          if competition_rules
-            a.active.item Competition Rules
-          else
-            a.item(href="/competition-rules") Competition Rules
+            if competition_rules
+              a.active.item Competition Rules
+            else
+              a.item(href="/competition-rules") Competition Rules
 
-          if consent
-            a.active.item Consent
-          else
-            a.item(href="/consent") Consent
+            if consent
+              a.active.item Consent
+            else
+              a.item(href="/consent") Consent
 
-          if discord
-            a.active.item Discord
-          else
-            a.item(href="https://discord.gg/secrethitlerio") Discord
+            if discord
+              a.active.item Discord
+            else
+              a.item(href="https://discord.gg/secrethitlerio") Discord
 
-          if github
-            a.active.item GitHub
-          else
-            a.item(href="https://github.com/cozuya/secret-hitler") GitHub
+            if github
+              a.active.item GitHub
+            else
+              a.item(href="https://github.com/cozuya/secret-hitler") GitHub
 
-          if tou
-            a.active.item Terms of Use
-          else
-            a.item(href="/tou") Terms of Use
+            if tou
+              a.active.item Terms of Use
+            else
+              a.item(href="/tou") Terms of Use
 
-          if about
-            a.active.item About
-          else
-            a.item(href="/about") About
+            if about
+              a.active.item About
+            else
+              a.item(href="/about") About
 
-          if imprint
-            a.active.item Imprint
-          else
-            a.item(href="/imprint") Imprint
+            if imprint
+              a.active.item Imprint
+            else
+              a.item(href="/imprint") Imprint
 
           if username
             div.item.right

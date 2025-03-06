@@ -139,6 +139,15 @@ export class App extends React.Component {
 			});
 		});
 
+		socket.on('consent', consent_html => {
+			this.setState({
+				alertMsg: {
+					type: 'consent',
+					data: consent_html
+				}
+			});
+		});
+
 		socket.on('warningPopup', warning => {
 			if (this.state.alertMsg.type === null) {
 				this.setState({
@@ -296,6 +305,13 @@ export class App extends React.Component {
 	}
 
 	touConfirmButton(e) {
+		e.preventDefault();
+		if (e.target[0].checked) {
+			socket.emit('confirmTOU');
+		}
+	}
+	
+	consentConfirmButton(e) {
 		e.preventDefault();
 		if (e.target[0].checked) {
 			socket.emit('confirmTOU');
@@ -498,6 +514,70 @@ export class App extends React.Component {
 
 					{(() => {
 						if (this.state.alertMsg.type) {
+							if (this.state.alertMsg.type === 'consent') {
+								return (
+									<div
+										style={{
+											position: 'fixed',
+											zIndex: 99999,
+											background: 'var(--theme-background-1)',
+											width: '100vw',
+											height: '100vh',
+											display: 'flex'
+										}}
+									>
+										<div
+											style={{
+												margin: 'auto',
+												padding: '5px',
+												border: '1px solid var(--theme-text-1)',
+												borderRadius: '10px',
+												background: 'var(--theme-background-1)',
+												width: "50%",
+												height: "80%"
+											}}
+										>
+											<h2 style={{ fontFamily: '"Comfortaa", Lato, sans-serif' }}>
+												{"Statement of Research Consent"}
+
+											</h2>
+											<div
+												style={{
+													maxHeight: '80%',
+													width: '100%',
+													border: '1px solid var(--theme-background-1)',
+													borderRadius: '5px',
+													background: 'var(--theme-background-3)',
+													padding: '3px',
+													overflowY: 'scroll'
+												}}
+												dangerouslySetInnerHTML={{ __html: this.state.alertMsg.data }}
+											>
+											</div>
+											<form onSubmit={this.consentConfirmButton}>
+												<input type="checkbox" id="touCheckBox" style={{ height: '16px', width: '16px' }} />
+												<label htmlFor="touCheckBox" style={{ fontFamily: '"Comfortaa", Lato, sans-serif', cursor: 'pointer' }}>
+													{' '}
+													I consent
+												</label>
+												<br />
+												<input
+													type="submit"
+													value="Dismiss"
+													style={{
+														width: '100%',
+														borderRadius: '5px',
+														fontFamily: '"Comfortaa", Lato, sans-serif',
+														fontWeight: 'bold',
+														cursor: 'pointer'
+													}}
+													id="touButton"
+												/>
+											</form>
+										</div>
+									</div>
+								);
+							}
 							if (this.state.alertMsg.type === 'tou') {
 								return (
 									<div

@@ -60,7 +60,7 @@ const {
 const { saveAndDeleteGame } = require('./game/end-game');
 const { games, emoteList, cloneSettingsFromRedis, modDMs, getStaffList } = require('./models');
 const Account = require('../../models/account');
-const { TOU_CHANGES } = require('../../src/frontend-scripts/node-constants.js');
+const { TOU_CHANGES, DOCUMENTS } = require('../../src/frontend-scripts/node-constants.js');
 const version = require('../../version');
 const https = require('https');
 const moment = require('moment');
@@ -244,7 +244,8 @@ module.exports.socketRoutes = () => {
 						return true;
 					}
 				} else {
-					socket.emit('touChange', [TOU_CHANGES[TOU_CHANGES.length - 1]]);
+					console.log("Sending consent form to", passport.user, DOCUMENTS.CONSENT());
+					socket.emit('consent', DOCUMENTS.CONSENT());
 					return true;
 				}
 				const warnings = account.warnings.filter(warning => !warning.acknowledged);

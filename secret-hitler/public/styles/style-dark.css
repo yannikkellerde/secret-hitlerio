@@ -4147,6 +4147,9 @@
 .ui.pronouns {
   color: var(--theme-primary); }
 
+.ui.text.container h1.ui.header.centered {
+  color: var(--theme-text-1); }
+
 .ui.blacklist.header {
   text-align: center; }
 
@@ -4206,7 +4209,13 @@ div {
   background-color: var(--theme-primary);
   margin: auto;
   width: 95%;
-  max-width: 1920px; }
+  max-width: 1920px;
+  display: flex;
+  flex-wrap: wrap; }
+  #game-container .nav-menu .menu-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1; }
   #game-container .nav-menu > a {
     max-height: 36px;
     margin-top: 3px;
