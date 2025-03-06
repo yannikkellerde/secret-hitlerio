@@ -11,7 +11,6 @@ const { userInBlacklist } = require('../../../utils');
  * @param {object} data - from socket emit.
  */
 const updateSeatedUser = (socket, passport, data) => {
-	console.log("data.gameId : ", data.uid)
 	// Authentication Assured in routes.js
 	// In-game Assured in routes.js
 	const game = games[data.uid];

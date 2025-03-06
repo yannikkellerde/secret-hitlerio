@@ -57,7 +57,6 @@ const getQueue = async (socket, passport, data) => {
 }
 
 const checkIfThereAreSevenPlayers = async (socket, passport, io) => {
-    console.log("inside checkIfThereAreSevenPlayers")
     const userInQueue = await Queue.find({gmaeId: null})
     if (userInQueue.length>=7){
         console.log('checkIfThereAreSevenPlayers : there are 7 players we can start a new game.')
@@ -66,9 +65,7 @@ const checkIfThereAreSevenPlayers = async (socket, passport, io) => {
     }
 }
 
-const startANewGame = async (socket, passport, io) =>{
-    console.log("inside startANewGame")
-    
+const startANewGame = async (socket, passport, io) =>{    
     const gameNameId = `game_${Date.now()}`;
 
     // select 7 players
@@ -118,9 +115,7 @@ const startANewGame = async (socket, passport, io) =>{
         }
     }
 }
-const isGameIdSet = async (socket, passport, data)=>{
-    console.log("isGameIdSet is called")
-    
+const isGameIdSet = async (socket, passport, data)=>{    
     const userDocument = await Queue.find({userName: passport.user})
     if (userDocument.length > 0){
         if ( userDocument[0].gameId ){
