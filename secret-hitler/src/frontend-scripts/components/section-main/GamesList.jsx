@@ -274,17 +274,10 @@ const GamesList = (props)=> {
 			<div className="browser-body">
 				{renderSticky()}
 				{
-					queue.length>0 && (
-						<>
-						<h2>Players in waiting ...</h2>
-						<ol>
-						{
-							queue.map((row)=>{
-								return <li key={row['_id']}>{row.userName}</li>
-							})
-						}
-						</ol>
-						</>
+					queue.length>0 ? (
+						<h2>{queue.length} Players in queue, waiting for {7-queue.length} more players...</h2>
+					) : (
+						<h2>There are no players queue ...</h2>
 					)
 				}
 				
