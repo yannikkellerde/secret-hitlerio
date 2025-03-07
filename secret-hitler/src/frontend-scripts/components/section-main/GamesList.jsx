@@ -227,6 +227,21 @@ const GamesList = (props)=> {
 		}
 	}, [inQueue])
 
+	const useUnload = (callback) => {
+		useEffect(() => {
+		  const handleUnload = (event) => {
+			callback();
+			event.preventDefault();
+			// event.returnValue = ""; // Some browsers require this for the prompt to show
+		  };
+	  
+		  window.addEventListener("beforeunload", handleUnload);
+		  return () => window.removeEventListener("beforeunload", handleUnload);
+		}, [callback]);
+	};
+
+	useUnload(() => { updateUserStatesInQueue("remove") });
+
 	const updateUserStatesInQueue = (status) =>{
 		if ( status=='add' ){
 			props.socket.emit('addToQueue', {dummy: "dummy"});
