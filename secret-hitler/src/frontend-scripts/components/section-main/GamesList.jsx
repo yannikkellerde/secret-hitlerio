@@ -230,9 +230,11 @@ const GamesList = (props)=> {
 	const useUnload = (callback) => {
 		useEffect(() => {
 		  const handleUnload = (event) => {
-			callback();
-			event.preventDefault();
-			// event.returnValue = ""; // Some browsers require this for the prompt to show
+			if( inQueue ){
+				callback();
+				event.preventDefault();
+				// event.returnValue = ""; // Some browsers require this for the prompt to show
+			}
 		  };
 	  
 		  window.addEventListener("beforeunload", handleUnload);
