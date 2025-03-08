@@ -147,6 +147,22 @@ export class App extends React.Component {
 				}
 			});
 		});
+		socket.on('gameplay_rules', gameplay_html => {
+			this.setState({
+				alertMsg: {
+					type: 'gameplay_rules',
+					data: gameplay_html
+				}
+			});
+		});
+		socket.on('competition_rules', competition_rules => {
+			this.setState({
+				alertMsg: {
+					type: 'competition_rules',
+					data: competition_rules
+				}
+			});
+		});
 
 		socket.on('warningPopup', warning => {
 			if (this.state.alertMsg.type === null) {
@@ -313,10 +329,26 @@ export class App extends React.Component {
 	
 	consentConfirmButton(e) {
 		e.preventDefault();
-		if (e.target[0].checked) {
-			socket.emit('confirmTOU');
-		}
+		const buttonId = e.nativeEvent.submitter.id;
+		// Send different responses based on which button was clicked
+		if (buttonId === "Consent") {
+			socket.emit('consentResponse');
+		  } else if (buttonId === "noConsent") {
+			window.location.href = window.location.origin;
+		  }
 	}
+
+	competitionRulesButton(e) {
+		e.preventDefault();
+		socket.emit('competitionRulesResponse');
+	}
+
+	gameRulesButton(e) {
+		e.preventDefault();
+		socket.emit('gameplayRulesResponse');
+	}
+	
+	
 
 	acknowledgeWarning(e) {
 		e.preventDefault();
@@ -514,6 +546,122 @@ export class App extends React.Component {
 
 					{(() => {
 						if (this.state.alertMsg.type) {
+							if (this.state.alertMsg.type === 'gameplay_rules') {
+								return (
+									<div
+										style={{
+											position: 'fixed',
+											zIndex: 99999,
+											background: 'var(--theme-background-1)',
+											width: '100vw',
+											height: '100vh',
+											display: 'flex'
+										}}
+									>
+										<div
+											style={{
+												margin: 'auto',
+												padding: '5px',
+												border: '1px solid var(--theme-text-1)',
+												borderRadius: '10px',
+												background: 'var(--theme-background-1)',
+												width: "50%",
+												height: "80%"
+											}}
+										>
+											<h2 style={{ fontFamily: '"Comfortaa", Lato, sans-serif' }}>
+												{"Gameplay Rules"}
+
+											</h2>
+											<div
+												style={{
+													maxHeight: '80%',
+													width: '100%',
+													border: '1px solid var(--theme-background-1)',
+													borderRadius: '5px',
+													background: 'var(--theme-background-3)',
+													padding: '30px',
+													overflowY: 'scroll'
+												}}
+												dangerouslySetInnerHTML={{ __html: this.state.alertMsg.data }}
+											>
+											</div>
+											<form onSubmit={this.gameRulesButton} style={{display: "flex", justifyContent: "center", flexDirection: "row", minHeight: "10%", padding: "1% 5% 1% 5%"}}>
+												<input
+													type="submit"
+													value="I understand"
+													style={{
+														width: '47%',
+														borderRadius: '5px',
+														fontFamily: '"Comfortaa", Lato, sans-serif',
+														fontWeight: 'bold',
+														cursor: 'pointer',
+													}}
+													id="noConsent"
+												/>
+											</form>
+										</div>
+									</div>
+								);
+							}
+							if (this.state.alertMsg.type === 'competition_rules') {
+								return (
+									<div
+										style={{
+											position: 'fixed',
+											zIndex: 99999,
+											background: 'var(--theme-background-1)',
+											width: '100vw',
+											height: '100vh',
+											display: 'flex'
+										}}
+									>
+										<div
+											style={{
+												margin: 'auto',
+												padding: '5px',
+												border: '1px solid var(--theme-text-1)',
+												borderRadius: '10px',
+												background: 'var(--theme-background-1)',
+												width: "50%",
+												height: "80%"
+											}}
+										>
+											<h2 style={{ fontFamily: '"Comfortaa", Lato, sans-serif' }}>
+												{"Competitions Rules"}
+
+											</h2>
+											<div
+												style={{
+													maxHeight: '80%',
+													width: '100%',
+													border: '1px solid var(--theme-background-1)',
+													borderRadius: '5px',
+													background: 'var(--theme-background-3)',
+													padding: '30px',
+													overflowY: 'scroll'
+												}}
+												dangerouslySetInnerHTML={{ __html: this.state.alertMsg.data }}
+											>
+											</div>
+											<form onSubmit={this.competitionRulesButton} style={{display: "flex", justifyContent: "center", flexDirection: "row", minHeight: "10%", padding: "1% 5% 1% 5%"}}>
+												<input
+													type="submit"
+													value="I understand"
+													style={{
+														width: '47%',
+														borderRadius: '5px',
+														fontFamily: '"Comfortaa", Lato, sans-serif',
+														fontWeight: 'bold',
+														cursor: 'pointer',
+													}}
+													id="noConsent"
+												/>
+											</form>
+										</div>
+									</div>
+								);
+							}
 							if (this.state.alertMsg.type === 'consent') {
 								return (
 									<div
@@ -548,30 +696,38 @@ export class App extends React.Component {
 													border: '1px solid var(--theme-background-1)',
 													borderRadius: '5px',
 													background: 'var(--theme-background-3)',
-													padding: '3px',
+													padding: '30px',
 													overflowY: 'scroll'
 												}}
 												dangerouslySetInnerHTML={{ __html: this.state.alertMsg.data }}
 											>
 											</div>
-											<form onSubmit={this.consentConfirmButton}>
-												<input type="checkbox" id="touCheckBox" style={{ height: '16px', width: '16px' }} />
-												<label htmlFor="touCheckBox" style={{ fontFamily: '"Comfortaa", Lato, sans-serif', cursor: 'pointer' }}>
-													{' '}
-													I consent
-												</label>
-												<br />
+											<form onSubmit={this.consentConfirmButton} style={{display: "flex", justifyContent: "space-between", flexDirection: "row", minHeight: "10%", padding: "1% 5% 1% 5%"}}>
 												<input
 													type="submit"
-													value="Dismiss"
+													value="I do not consent"
 													style={{
-														width: '100%',
+														width: '47%',
 														borderRadius: '5px',
 														fontFamily: '"Comfortaa", Lato, sans-serif',
 														fontWeight: 'bold',
-														cursor: 'pointer'
+														cursor: 'pointer',
+														backgroundColor: "orange",
 													}}
-													id="touButton"
+													id="noConsent"
+												/>
+												<input
+													type="submit"
+													value="I consent"
+													style={{
+														width: '47%',
+														borderRadius: '5px',
+														fontFamily: '"Comfortaa", Lato, sans-serif',
+														fontWeight: 'bold',
+														cursor: 'pointer',
+														backgroundColor: "lightgreen",
+													}}
+													id="Consent"
 												/>
 											</form>
 										</div>

@@ -232,20 +232,24 @@ module.exports.socketRoutes = () => {
 					}
 					return true;
 				};
+				
+				console.log("last agreed", account.touLastAgreed); 
 
 				if (account.touLastAgreed && account.touLastAgreed.length) {
-					const changesSince = [];
-					const myVer = parseVer(account.touLastAgreed);
-					TOU_CHANGES.forEach(change => {
-						if (!firstVerNew(myVer, parseVer(change.changeVer))) changesSince.push(change);
-					});
-					if (changesSince.length) {
-						socket.emit('touChange', changesSince);
+					if (account.touLastAgreed !== 'done'){
+						if (account.touLastAgreed === 'consent') {
+							socket.emit('consent', DOCUMENTS.CONSENT());
+						}
+						else if (account.touLastAgreed === 'gameplay_rules') {
+							socket.emit('gameplay_rules', DOCUMENTS.GAMEPLAY_RULES());
+						}
+						else {
+							socket.emit('competition_rules', DOCUMENTS.COMPETITION_RULES());
+						}
 						return true;
 					}
 				} else {
-					console.log("Sending consent form to", passport.user, DOCUMENTS.CONSENT());
-					socket.emit('consent', DOCUMENTS.CONSENT());
+					socket.emit('competition_rules', DOCUMENTS.COMPETITION_RULES());
 					return true;
 				}
 				const warnings = account.warnings.filter(warning => !warning.acknowledged);
@@ -456,6 +460,35 @@ module.exports.socketRoutes = () => {
 					});
 				}
 			});
+
+			socket.on('consentResponse', () => {
+				if (authenticated && isRestricted) {
+					Account.findOne({ username: passport.user }).then(account => {
+						account.touLastAgreed = "gameplay_rules";
+						account.save();
+						isRestricted = checkRestriction(account);
+					});
+				}
+			});
+			socket.on('competitionRulesResponse', () => {
+				if (authenticated && isRestricted) {
+					Account.findOne({ username: passport.user }).then(account => {
+						account.touLastAgreed = "consent";
+						account.save();
+						isRestricted = checkRestriction(account);
+					});
+				}
+			});
+			socket.on('gameplayRulesResponse', () => {
+				if (authenticated && isRestricted) {
+					Account.findOne({ username: passport.user }).then(account => {
+						account.touLastAgreed = "done";
+						account.save();
+						isRestricted = checkRestriction(account);
+					});
+				}
+			});
+
 
 			socket.on('acknowledgeWarning', () => {
 				if (authenticated && isRestricted) {

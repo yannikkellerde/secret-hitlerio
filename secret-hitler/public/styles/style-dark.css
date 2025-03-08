@@ -4147,8 +4147,10 @@
 .ui.pronouns {
   color: var(--theme-primary); }
 
-.ui.text.container h1.ui.header.centered {
-  color: var(--theme-text-1); }
+.ui.text.container {
+  padding: 10px; }
+  .ui.text.container h1.ui.header.centered, .ui.text.container h2.ui.header.centered, .ui.text.container h3.ui.header.centered, .ui.text.container h4.ui.header.centered, .ui.text.container h5.ui.header.centered, .ui.text.container h6.ui.header.centered {
+    color: var(--theme-text-1); }
 
 .ui.blacklist.header {
   text-align: center; }

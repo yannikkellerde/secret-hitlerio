@@ -825,10 +825,12 @@
 .ui.pronouns {
 	color: var(--theme-primary);
 }
-.ui.text.container {
-	h1.ui.header.centered, h2.ui.header.centered, h3.ui.header.centered, h4.ui.header.centered {
+
+.ui.text.container{
+	h1.ui.header.centered, h2.ui.header.centered, h3.ui.header.centered, h4.ui.header.centered, h5.ui.header.centered, h6.ui.header.centered {
 		color: var(--theme-text-1);
 	}
+	padding: 10px;
 }
 
 .ui.blacklist.header {

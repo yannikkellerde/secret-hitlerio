@@ -266,7 +266,7 @@ const continueSignup = config => {
 				losses: 0,
 				created: new Date(),
 				signupIP: signupIP,
-				hasNotDismissedSignupModal: true,
+				hasNotDismissedSignupModal: false,
 				verification: {
 					email: type === 'discord' ? profile.email : profile._json.email
 				},
@@ -465,7 +465,7 @@ module.exports.accounts = torIpsParam => {
 		const save = {
 			username,
 			isLocal: true,
-			hasNotDismissedSignupModal: true,
+			hasNotDismissedSignupModal: false,
 			gameSettings: {
 				soundStatus: 'pack2',
 				isPrivate
