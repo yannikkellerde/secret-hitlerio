@@ -1,4 +1,26 @@
 const cn = require('classnames');
+const pug = require('pug');
+const path = require('path');
+const fs = require('fs');
+
+const renderContentBlock = (filePath) => {
+  // Read the template file
+  const templateContent = fs.readFileSync(filePath, 'utf8');
+  
+  // Extract the content block by removing the extends directive and keeping only what's in the content block
+  const contentOnlyTemplate = templateContent
+    .replace(/extends layout\s*/g, '')
+    .replace(/block content\s*/g, '');
+  
+  // Compile and render the modified template
+  return pug.compile(contentOnlyTemplate);
+};
+
+module.exports.DOCUMENTS = {
+  CONSENT: renderContentBlock('views/page-consent-form.pug'),
+  GAMEPLAY_RULES: renderContentBlock('views/page-contest-gameplay-rules.pug'),
+  COMPETITION_RULES: renderContentBlock('views/page-competition-rules.pug'),
+}
 
 module.exports.TOU_CHANGES = [
 	{

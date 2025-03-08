@@ -2,14 +2,14 @@ extends layout
 block content
 	img(src='../images/banner-summer.gif', style="width: 0; height: 0;")
 	if username
-		a(href="/game/") Game Lobby
+		a(href="/game/")
 			#header-container.ui.segment
 				div.online-count
 					i.user.icon
 					span#player-count
 					|	players online now
 	else
-		a(href="/observe/") Game Lobby
+		a(href="/observe/")
 			#header-container.ui.segment
 				div.online-count
 					i.user.icon
