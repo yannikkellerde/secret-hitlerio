@@ -3,4 +3,5 @@ variables:
   NAMESPACE: llm-social-deduction
   CHILD_PIPELINE_EXECUTION_CONTEXT: secret-hitler
   WEB_PORT: 8080
-  DEPLOYMENT_VARS: "MONGO_URL, MONGO_OPLOG_URL"
+  MAIN_URL: secrethitler-contest.net
+  DEPLOYMENT_VARS: "MONGO_URL, MONGO_OPLOG_URL, MAIN_URL"
